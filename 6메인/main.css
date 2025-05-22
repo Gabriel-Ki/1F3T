@@ -62,8 +62,8 @@ header {
   left: 0;
   right: 0;
   overflow-y: auto;
-  background-color: #f7f7f7;
-  padding: 16px;
+  background-color: #fff;
+  padding: 32px;
 }
 .content::-webkit-scrollbar {
   width: 0px; /* 스크롤바 너비 */
