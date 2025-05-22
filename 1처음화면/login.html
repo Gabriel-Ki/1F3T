@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>진입화면</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 250px;
+      height: 480px;
+      background-color: #00b5ad;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .btn {
+      width: 160px;
+      padding: 10px 0;
+      background-color: white;
+      color: #00b5ad;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 로고 이미지 사용 -->
+    <img src="../1처음화면/img/logo.PNG">
+    <button class="btn" onclick="alert('로그인')">로그인</button>
+    <button class="btn" onclick="alert('회원가입')">회원가입</button>
+  </div>
+</body>
+</html>
