@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>근로권익퀴즈 화면진입</title>
     <link rel="stylesheet" href="10근로권익퀴즈01진입화면.css">
 </head>
+
 <body>
     <div class="wrapper">
         <header class="header">
@@ -15,25 +17,25 @@
 
         <div class="subtitle">
             <p1><span class="orange">근로권익 퀴즈</span> 풀고</p>
-            <p2><span class="teal">수료증 발급</span>받고</p>
-            <p2><span class="blue">안심 일자리 지원</span>하자</p>
+                <p2><span class="teal">수료증 발급</span>받고</p>
+                    <p2><span class="blue">안심 일자리 지원</span>하자</p>
         </div>
         <div class="box">
-           <div class="main_image">
+            <div class="main_image">
                 <img src="./img/y.png" alt="이미지">
                 <div class="main_image_text">
-                <br><br>근로권익 퀴즈를 풀고<br>
-                <span class="teal">올바른 노동 지식</span>을 익혀 내 권리를 지키세요!<br><br>
-                퀴즈 수료증을 통해<br>
-                안심하고 일할 수 있는<br>
-                <span class="blue">안전한 일자리에 지원</span>할 수 있습니다.
+                    <br><br>근로권익 퀴즈를 풀고<br>
+                    <span class="teal">올바른 노동 지식</span>을 익혀 내 권리를 지키세요!<br><br>
+                    퀴즈 수료증을 통해<br>
+                    안심하고 일할 수 있는<br>
+                    <span class="blue">안전한 일자리에 지원</span>할 수 있습니다.
+                </div>
+                <button id="startBtn" class="start-btn">시작하기</button>
             </div>
-                <button id="startBtn" class="start-btn">시작하기</button> 
+
+
         </div>
 
-        
-    </div>
-         
         <footer class="footer">
             <a href="chat.html" class="footer-item">
                 <img src="./img/teenyicons_chatbot-outline.png" alt="AI채팅">
@@ -59,15 +61,16 @@
 
     </div>
     <script>
-        document.getElementById('startBtn').addEventListener('click', function() {
+        document.getElementById('startBtn').addEventListener('click', function () {
             window.location.href = '10근로권익퀴즈02퀴즈.html'; // 이동할 페이지 주소 넣기
         });
 
-        document.getElementById('backBtn').addEventListener('click', function() {
+        document.getElementById('backBtn').addEventListener('click', function () {
             window.location.href = 'main.html';
         });
-    
+
 
     </script>
 </body>
+
 </html>
