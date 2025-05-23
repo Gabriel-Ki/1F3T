@@ -31,10 +31,10 @@
                         이력서 사진 등록<span class="required">*</span>
                     </div>
                     <div class="file-upload-area" onclick="document.getElementById('photoUpload').click()">
-                        <img src="./img/material-symbols-light_upload.png">
+                        <img src="./img/material-symbols-light_upload.png" alt="upload icon">
                         <div class="upload-text">
                             이곳에 이미지를 업로드하거나,<br />
-                            아래 파일 찾기 버튼을 눌러<br />
+                            아래 파일 찾기 버튼을 누르어<br />
                             이미지를 등록해주세요.
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         이미지 파일은 JPG, PNG 파일만 등록 가능합니다.<br />
                         최대 1MB까지 등록 가능합니다.
                     </div>
-                    <button type="button" class="btn btn-primary" style="margin-top: 12px;">파일 찾기</button>
+                    <button type="button" class="btn btn-primary mt-12">파일 찾기</button>
                 </div>
 
                 <!-- 개인정보 -->
@@ -51,7 +51,7 @@
                     <div class="form-label">
                         개인정보<span class="required">*</span>
                     </div>
-                    <div class="form-group" style="margin-bottom: 12px;">
+                    <div class="form-group mb-12">
                         <div class="dropdown-wrapper">
                             <select class="form-input dropdown">
                                 <option>성별</option>
@@ -60,19 +60,10 @@
                             </select>
                         </div>
                         <div class="dropdown-wrapper">
-                            <select class="form-input dropdown">
-                                <option>나이</option>
-                                <option>18세</option>
-                                <option>19세</option>
-                                <option>20세</option>
-                                <option>21세</option>
-                                <option>22세</option>
-                                <option>기타</option>
-                            </select>
+                            <input type="number" class="form-input" placeholder="나이 (숫자로 입력)">
                         </div>
                     </div>
-
-                    <input type="tel" class="form-input" placeholder="연락처" style="margin-bottom: 12px;" />
+                    <input type="tel" class="form-input mb-12" placeholder="연락처" />
                     <div class="form-group">
                         <input type="email" class="form-input" placeholder="이메일" />
                         <div class="dropdown-wrapper">
@@ -84,8 +75,8 @@
                             </select>
                         </div>
                     </div>
-                    <input type="text" class="form-input" placeholder="주소" style="margin-top: 12px;" />
-                    <div class="dropdown-wrapper" style="margin-top: 12px;">
+                    <input type="text" class="form-input mt-12" placeholder="주소" />
+                    <div class="dropdown-wrapper mt-12">
                         <select class="form-input dropdown">
                             <option>학력</option>
                             <option>고등학교 졸업</option>
@@ -99,9 +90,28 @@
                 <!-- 희망근무지 -->
                 <div class="form-section">
                     <div class="form-label">희망근무지<span class="required">*</span></div>
-                    <textarea class="form-input textarea" placeholder="희망 근무지역을 선택해주세요."></textarea>
-                    <div class="character-count"><span class="character-limit">0</span>/3</div>
-                    <button type="button" class="btn btn-secondary">선택하기</button>
+                    <select id="regionSelector" class="form-input dropdown">
+                        <option value="">구성을 선택하세요</option>
+                        <option>서울특별시</option>
+                        <option>경기도</option>
+                        <option>인천광역시</option>
+                        <option>강원특별자치도</option>
+                        <option>대전광역시</option>
+                        <option>세종특별자치시</option>
+                        <option>출천남도</option>
+                        <option>출천북도</option>
+                        <option>부산광역시</option>
+                        <option>울산광역시</option>
+                        <option>경상남도</option>
+                        <option>경상북도</option>
+                        <option>대구광역시</option>
+                        <option>광주광역시</option>
+                        <option>전라남도</option>
+                        <option>전북특별자치도</option>
+                        <option>제주특별자치도</option>
+                        <option>전국</option>
+                    </select>
+                    <div id="selectedRegions" class="form-group mt-12"></div>
                 </div>
 
                 <!-- 희망직종 -->
@@ -115,21 +125,20 @@
                 <!-- 자기소개서 -->
                 <div class="form-section">
                     <div class="form-label">자기소개서<span class="required">*</span></div>
-                    <textarea class="form-input textarea" placeholder="자기소개서를 작성하시거나 등록해주세요."
+                    <textarea class="form-input textarea" placeholder=
                         style="min-height: 120px;"></textarea>
                     <button type="button" class="btn btn-secondary">자기소개서 직접 작성하기</button>
-                    <div class="file-upload-area" style="margin-top: 12px;"
-                        onclick="document.getElementById('resumeUpload').click()">
-                        <img src="./img/material-symbols-light_upload.png">
+                    <div class="file-upload-area mt-12" onclick="document.getElementById('resumeUpload').click()">
+                        <img src="./img/material-symbols-light_upload.png" alt="upload icon">
                         <div class="upload-text">
                             이곳에 파일을 업로드하거나,<br />
-                            아래 파일 찾기 버튼을 눌러<br />
+                            아래 파일 찾기 버튼을 누르어<br />
                             파일을 등록해주세요.
                         </div>
                     </div>
                     <input type="file" id="resumeUpload" class="hidden" accept=".doc,.docx,.pdf" />
                     <div class="file-info">파일은 포맷 5MB까지 등록할 수 있습니다.</div>
-                    <button type="button" class="btn btn-primary" style="margin-top: 12px;">파일 찾기</button>
+                    <button type="button" class="btn btn-primary mt-12">파일 찾기</button>
                 </div>
             </form>
         </div>
@@ -144,3 +153,4 @@
 </body>
 
 </html>
+ㄹㄹ
