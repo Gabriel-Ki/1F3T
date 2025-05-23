@@ -220,12 +220,12 @@ body {
 }
 
 .view-btn {
-  background-color: #00acc1;
+  background-color: #00adad;
   color: white;
 }
 
 .apply-btn {
-  background-color: #00796b;
+  background-color: #00adad;
   color: white;
 }
 
@@ -237,6 +237,7 @@ body {
 
 
 
+/* 하단 네비게이션 */
 .footer {
   width: 100%;
   max-width: 412px;
@@ -247,7 +248,7 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 8px 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #e0e0e0;
   background: #fff;
   z-index: 1000;
 }
@@ -255,18 +256,24 @@ body {
 .footer-item,
 .footer-item:visited {
   text-decoration: none;
-  color: inherit;
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
+  transition: transform 0.2s ease;
 }
 
 .footer-item img {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 4px;
 }
+
+.footer-item:hover img {
+  transform: scale(1.1);
+}
+
 
 
 #alert-text {
@@ -392,3 +399,4 @@ body {
   margin: 4px 0;
   font-size: 14px;
 }
+

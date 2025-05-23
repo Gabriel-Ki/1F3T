@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>근로권익 퀴즈 수료증</title>
+  <link rel="stylesheet" href="10.근로권익퀴즈03수료증.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!--  상단 헤더 -->
+    <header class="header">
+      <button id="backBtn" class="icon-btn"><img src="./img/x.png" alt="닫기"></button>
+      <div class="header-title">근로권익 퀴즈</div>
+    </header>
+
+    <main class="content">
+      <div class="certificate-card">
+        <div class="certificate-inner">
+          <p class="certificate-title">근로권익 퀴즈</p>
+          <p class="certificate-subtitle">수료증</p>
+          <p class="certificate-desc">
+            위 사람은 Y:WORK에서 실시하는<br />
+            근로권익 퀴즈를 이수하였으므로<br />
+            본 증서를 수여합니다
+          </p>
+          <div class="certificate-name">강두리</div>
+          <div class="certificate-date">2025.05.25</div>
+          <img class="medal" src="./img/cer.png" alt="수료 메달" />
+        </div>
+      </div>
+
+      <!-- 버튼 영역 -->
+      <div class="button-row">
+        <button class="btn-outline" onclick="showToast('저장되었습니다')">
+          <img src="./img/st.png" alt="저장" />
+          저장하기
+        </button>
+        <button class="btn-outline" onclick="showToast('링크가 복사되었습니다')">
+          <img src="./img/sh.png" alt="공유" />
+          공유하기
+        </button>
+      </div>
+    </main>
+
+    <!-- ✅ 하단 내비게이션 -->
+    <footer class="footer">
+      <a href="chat.html" class="footer-item">
+        <img src="./img/teenyicons_chatbot-outline.png" alt="AI채팅" />
+        <span>AI채팅</span>
+      </a>
+      <a href="map.html" class="footer-item">
+        <img src="./img/uiw_map.png" alt="알바지도" />
+        <span>알바지도</span>
+      </a>
+      <a href="profile.html" class="footer-item">
+        <img src="./img/Group 111.png" alt="홈" />
+        <span>홈</span>
+      </a>
+      <a href="forum.html" class="footer-item">
+        <img src="./img/ep_chat-dot-round.png" alt="채팅" />
+        <span>채팅</span>
+      </a>
+      <a href="account.html" class="footer-item">
+        <img src="./img/iconamoon_profile-light.png" alt="마이페이지" />
+        <span>마이페이지</span>
+      </a>
+    </footer>
+
+    <!-- ✅ 커스텀 확인 모달 -->
+    <div id="custom-confirm" class="modal">
+      <div class="modal-box">
+        <p class="modal-message">정말 나가시겠습니까?</p>
+        <div class="modal-buttons">
+          <button class="modal-btn cancel" onclick="hideConfirm()">취소</button>
+          <button class="modal-btn confirm" onclick="goToMain()">나가기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Toast 메시지 -->
+    <div id="toast" class="toast">안내 메시지</div>
+  </div>
+
+  <!-- ✅ 스크립트 -->
+  <script>
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    // 닫기 버튼 → 모달 열기
+    document.getElementById('backBtn').addEventListener('click', function () {
+      document.getElementById('custom-confirm').style.display = 'flex';
+    });
+
+    // [취소] 버튼
+    function hideConfirm() {
+      document.getElementById('custom-confirm').style.display = 'none';
+    }
+
+    // [나가기] 버튼
+    function goToMain() {
+      window.location.href = 'main.html';
+    }
+  </script>
+</body>
+</html>

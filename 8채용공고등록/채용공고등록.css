@@ -1,0 +1,192 @@
+/* reset & 기본 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+}
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* wrapper */
+.wrapper {
+  max-width: 412px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 60px;
+}
+
+/* header */
+.header {
+  position: fixed;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 412px;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 10;
+}
+.back-btn {
+  font-size: 24px;
+  line-height: 1;
+}
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* form */
+.form {
+  padding: 16px;
+}
+.form label {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.required {
+  color: #e74c3c;
+  margin-left: 2px;
+  font-size: 14px;
+}
+.form input[type="text"],
+.form input[type="date"],
+.form input[type="number"],
+.form select,
+.form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.inline-group {
+  display: flex;
+  gap: 8px;
+}
+.field {
+  flex: 1;
+}
+
+/* 주소 검색 */
+.address-search {
+  display: flex;
+  align-items: center;  
+  gap: 8px;
+}
+
+.address-search input {
+  flex: 1;
+  padding: 10px;        
+  font-size: 14px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.address-search .search-btn {
+  padding: 10px 12px;     
+  font-size: 14px;
+  line-height: 1.2;
+  box-sizing: border-box;
+  background: #00adad;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 이미지 업로드 */
+.image-upload-wrapper {
+  position: relative;
+  margin: 16px 0;
+}
+
+.image-upload {
+  border: 1px solid #ccc;     
+  border-radius: 4px;
+  padding: 20px;
+  min-height: 100px;         
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+
+.image-upload span {
+  color: #999;  
+}
+
+.image-upload.dragover {
+  border-color: #00bfa5;
+  background: rgba(0, 191, 165, 0.1);
+}
+
+.image-upload input[type="file"] {
+  display: none;
+}
+
+
+.image-upload-wrapper .note {
+  position: absolute;
+  left: 0;
+  bottom: -3.5em;          
+  margin: 0;
+  font-size: 10px;
+  color: #999;
+  line-height: 1.4;
+}
+
+.image-upload-wrapper .file-btn {
+  position: absolute;
+  right: 0;
+  bottom: -2.5em;          
+  padding: 6px 12px;
+  background: #00adad;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 버튼 그룹 */
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin: 80px 0 0 ;
+}
+.btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+}
+.draft {
+  background: #ccc;
+  color: #777;
+}
+.submit {
+  background: #00adad;
+  color: #fff;
+}
+#conditions {
+  height: 120px; 
+  resize: none;
+}
+
