@@ -125,23 +125,26 @@ body {
 }
 
 .subtitle {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: right;
-  padding: 20px;
-  line-height: 1.1; /* 줄 간격 작게 */
+  padding: 30px;
+  line-height: 1.2; 
   letter-spacing: -0.3px;
   font-weight: 700;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-
+.subtitle p {
+  margin: 0;         
+  padding: 0;
+}
 .subtitle p1{
-  margin: 0;
   font-weight: 400;
   font-size: 20px;
   color: #333;
 }
 
-.subtitle p2 {
-  margin: 0;
+.subtitle p2 { 
   font-weight: 400;
   font-size: 30px;
   color: #3f3f3f;
@@ -166,26 +169,26 @@ body {
 }
 
 .box {
-  width: 80%;             /*  비율로 설정 */
-  margin: 16px auto;
+  width: 80%;           
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
   background: white;
+  margin: 8px auto 16px auto;
 }
 
 /* 이미지와 텍스트 */
 .main_image {
   position: relative;
-  width: 100%;
-  border-radius: 10px;
   display: flex;
   justify-content: center;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .main_image img {
-  width: 100%;           /* box 너비에 맞게 꽉 채움 */
+  width: 100%;           
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -217,13 +220,13 @@ body {
   font-size: 17px;
 }
 
-/* 시작 버튼 */
 .start-btn {
-  font-family:'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
   font-weight: 700;
   position: absolute;
   bottom: 10px;
-  left: 50%;  transform: translateX(-50%);
+  left: 50%;
+  transform: translate(-50%, 20px); /* ✅ X: 가운데, Y: 아래에서 시작 */
   width: 236px;
   height: 70px;
   background-color: #00b3b3;
@@ -235,6 +238,15 @@ body {
   box-shadow: 0 4px 10px rgba(0, 179, 179, 0.3);
   transition: all 0.3s ease;
   z-index: 2;
+  opacity: 0;
+  animation: fadeUpBtn 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes fadeUpBtn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0); /* ✅ Y축 0으로 → 제자리로 부드럽게 올라옴 */
+  }
 }
 
 .start-btn:hover {
@@ -242,7 +254,7 @@ body {
 }
 
 .start-btn:active {
-  transform: translateX(-50%) scale(0.96);
+  transform: translate(-50%, 0) scale(0.96); /* ✅ 클릭 시에도 X 중심 유지 */
   box-shadow: 0 2px 6px rgba(0, 179, 179, 0.2);
 }
 
@@ -283,3 +295,46 @@ body {
   transform: scale(1.1);
 }
 
+
+
+/* 📌 이미지 등장 (확대 + 페이드인) */
+.animated-img {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: zoomInImg 0.8s ease-out forwards;
+}
+
+@keyframes zoomInImg {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 📌 이미지 위 텍스트 애니메이션 (위로 슬며시 등장) */
+.main_image_text {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: textFadeUp 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes textFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📌 버튼 애니메이션 (조금 더 느리게 등장) */
+.start-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUpBtn 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes fadeUpBtn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
