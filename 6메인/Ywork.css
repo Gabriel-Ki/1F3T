@@ -56,17 +56,12 @@
 body {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 400; /* 기본 가중치 */
+  background: #fff;
+  color: #333;
 }
 
 html, body {
   overflow-x: hidden;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #333;
 }
 
 .wrapper {
@@ -74,11 +69,10 @@ body {
   width: 100%;
   max-width: 412px;
   min-height: 100vh;
-  border: 1px solid #ccc;
+  border: none;
+
   background-color: #fff;
   position: relative;
-  margin: 0 auto;
-
   margin: 0 auto;
 }
 
@@ -109,8 +103,8 @@ body {
   cursor: pointer;
 }
 
-.header-right i,
-.filter-icons i {
+.filter-icons  {
+  font-weight: 500;
   font-size: 20px;
   color: #444;
 }
@@ -194,6 +188,7 @@ body {
   background: #e0f7fa;
   color: #00796b;
   font-size: 12px;
+  font-weight: 500;
   margin: 4px 4px 8px 0;
   padding: 4px 8px;
   border-radius: 12px;
@@ -262,6 +257,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 10px;
+  font-weight: bold;
   transition: transform 0.2s ease;
 }
 
@@ -369,6 +365,7 @@ body {
 
 .menu-item p {
   margin: 0;
+  font-weight: bold;
   font-size: 14px;
   color: inherit;
   text-decoration: none;

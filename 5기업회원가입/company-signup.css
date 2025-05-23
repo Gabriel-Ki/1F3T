@@ -40,14 +40,23 @@ body {
   gap: 8px;
 }
 
-input[type="text"],
-input[type="password"],
-select {
-  flex: 1;
+.input-group.phone-number {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-part {
+  width: 80px;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 14px;
+}
+
+.dash {
+  font-size: 16px;
+  color: #999;
 }
 
 .btn {
