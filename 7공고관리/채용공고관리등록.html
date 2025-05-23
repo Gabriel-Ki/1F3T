@@ -10,7 +10,7 @@
 <body>
   <div class="wrapper">
     <header>
-    <a href="Ywork.html" class="back-btn">
+    <a href="../6메인/Ywork.html" class="back-btn">
         <span class="material-icons">arrow_back</span>
     </a>
       <h1>공고관리</h1>
@@ -28,9 +28,12 @@
     </div>
 
     <div class="filter-bar">
-      <span class="total">전체 1건</span>
-      <button class="sort-btn"><span class="material-icons">unfold_more</span>작성일순</button>
+      <span class="total"></span>
+      <button class="sort-btn">
+        <span class="material-icons">unfold_more</span>작성일순
+      </button>
     </div>
+
 
     <section class="content">
       <div class="card">
@@ -43,15 +46,26 @@
         <div class="card-actions">
                 <a href="/posts/123/edit"       class="action-btn">수정</a>
                 <a href="/posts/123/draft"      class="action-btn">임시저장</a>
-                <a href="지원자관리.html" class="action-btn">지원자 관리</a>
+                <a href="../9지원자관리/지원자관리.html" class="action-btn">지원자 관리</a>
         </div>
       </div>
     </section>
 
-    <a href="/edit" class="fab">
+    <a href="../8채용공고등록/채용공고등록.html" class="fab">
         <span class="material-icons">edit</span>
     </a>  
 
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 전체 공고(.card) 개수 세기
+    const count = document.querySelectorAll('.content .card').length;
+    // .total 요소에 "전체 X건" 텍스트 삽입
+    document.querySelector('.filter-bar .total')
+      .textContent = `전체 ${count}건`;
+  });
+</script>
+
 </body>
 </html>

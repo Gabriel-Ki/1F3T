@@ -44,7 +44,7 @@
             <img src="./img/material-symbols_quiz-outline-rounded.png" alt="근로권익" />
                 <p>근로권익퀴즈 <br>인증서 발급</p>
         </a>
-        <a href="job-postings.html" class="menu-item">
+        <a href="../12채용정보/job_listing_page.html" class="menu-item">
             <img src="./img/bx_briefcase.png" alt="채용공고" />
                 <p>채용공고</p>
         </a>
@@ -119,7 +119,7 @@
                     <img src="./img/hugeicons_quiz-02.png" alt="근로권익" />
                     <p>근로권익 컨텐츠</p>
                 </a>
-                <a href="resume-manager.html" class="menu-item">
+                <a href="../11이력서등록/register.html" class="menu-item">
                     <img src="./img/ri_profile-line.png" alt="이력서" />
                     <p>이력서 관리</p>
                 </a>
@@ -150,7 +150,7 @@
                 <img src="./img/uiw_map.png" alt="알바지도">
                 <span>알바지도</span>
             </a>
-            <a href="profile.html" class="footer-item">
+            <a href="./Ywork.html" class="footer-item">
                 <img src="./img/Group 111.png" alt="홈">
                 <span>홈</span>
             </a>
@@ -184,24 +184,33 @@
   const textEl = document.getElementById("slider-text");
 
   function slideText() {
-    // 올라가는 듯한 효과
+    // 현재 텍스트 위로 사라지기
+    textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
     textEl.style.transform = "translateY(-100%)";
     textEl.style.opacity = "0";
 
     setTimeout(() => {
       index = (index + 1) % texts.length;
       textEl.textContent = texts[index];
+
+      // 새로운 텍스트 아래에서 시작
+      textEl.style.transition = "none";
       textEl.style.transform = "translateY(100%)";
-      
-      setTimeout(() => {
-        textEl.style.transform = "translateY(0)";
-        textEl.style.opacity = "1";
-      }, 50);
-    }, 500); // 애니메이션 지속 시간과 동일
+
+      // 잠깐 후 위로 올라오며 나타나기
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+          textEl.style.transform = "translateY(0)";
+          textEl.style.opacity = "1";
+        });
+      });
+    }, 500); // 이전 애니메이션 완료 후
   }
 
   setInterval(slideText, 5000);
 </script>
+
 
 
 </body>

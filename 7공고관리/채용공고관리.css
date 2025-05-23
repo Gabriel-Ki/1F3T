@@ -176,7 +176,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   padding: 8px 12px;
-  background: #00bfa5;
+  background: #00adad;
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
@@ -232,8 +232,11 @@ header h1 {
   z-index: 1000;         /* 다른 요소 위로 */
 }
 
+
+
 /* material icon 크기 조정 */
 .fab .material-icons {
+  color: #fff;
   font-size: 24px;
 }
 

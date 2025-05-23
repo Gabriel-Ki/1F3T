@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지원자 관리</title>
+  <link rel="stylesheet" href="지원자관리.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+        <a href="../7공고관리/채용공고관리등록.html" class="back-btn">←</a>
+        <h1 class="title">지원자 관리</h1>
+    </header>
+
+    <section class="subtitle">
+      <p>[광주 소촌점] 맘스터치 주방보조, 매장관리</p>
+    </section>
+
+    <div class="toolbar">
+      <span class="count">전체 0건</span>
+      <button class="sort-btn">지원일순</button>
+    </div>
+
+    <div class="cards">
+      <!-- 카드 1 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="info">
+            <span class="field">지원분야 주방보조</span>
+            <span class="date">지원일자 2025.05.15</span>
+          </div>
+          <div class="actions">
+            <button class="pill">이력서</button>
+            <button class="pill">경력증명서</button>
+            <button class="pill">📞 연락하기</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h2 class="name">정하나</h2>
+          <p class="contact">010-0000-0000</p>
+          <p class="email">hana123@naver.com</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn accept">합격</button>
+          <button class="btn reject">불합격</button>
+        </div>
+      </div>
+
+      <!-- 카드 2 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="info">
+            <span class="field">지원분야 주방보조</span>
+            <span class="date">지원일자 2025.05.15</span>
+          </div>
+          <div class="actions">
+            <button class="pill">이력서</button>
+            <button class="pill">경력증명서</button>
+            <button class="pill">📞 연락하기</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h2 class="name">강두리</h2>
+          <p class="contact">010-0000-0000</p>
+          <p class="email">duri123@naver.com</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn accept">합격</button>
+          <button class="btn reject">불합격</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="finish-btn" id="finishBtn">채용종료</button>
+  </div>
+
+<script>
+  // 채용종료 버튼: 확인 후 알림, 그리고 페이지 이동
+  document.getElementById('finishBtn').addEventListener('click', function() {
+    if (confirm('채용을 종료하시겠습니까?')) {
+      alert('채용이 종료되었습니다.');
+      // 종료 후 이동할 페이지 경로 지정
+      window.location.href = '../7공고관리/채용공고관리마감.html';
+    } else {
+      alert('취소되었습니다.');
+    }
+  });
+
+  // 개별 합/불합격 버튼 처리
+  document.querySelectorAll('.card').forEach(function(card) {
+    const name = card.querySelector('.name').textContent;
+    card.querySelector('.btn.accept').addEventListener('click', function() {
+      if (confirm(`${name} 님을 합격 처리하시겠습니까?`)) {
+        alert(`${name} 님이 합격 처리되었습니다.`);
+        // 실제 합격 처리 로직 추가 가능
+      } else {
+        alert('취소되었습니다.');
+      }
+    });
+    card.querySelector('.btn.reject').addEventListener('click', function() {
+      if (confirm(`${name} 님을 불합격 처리하시겠습니까?`)) {
+        alert(`${name} 님이 불합격 처리되었습니다.`);
+        // 실제 불합격 처리 로직 추가 가능
+      } else {
+        alert('취소되었습니다.');
+      }
+    });
+  });
+
+  // 지원자 수 자동 업데이트
+  document.addEventListener('DOMContentLoaded', function() {
+    const cardCount = document.querySelectorAll('.card').length;
+    document.querySelector('.count').textContent = `전체 ${cardCount}건`;
+  });
+</script>
+
+</body>
+</html>

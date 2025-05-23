@@ -70,6 +70,7 @@ body {
 }
 
 .wrapper {
+  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
   width: 100%;
   max-width: 412px;
   min-height: 100vh;
@@ -77,7 +78,7 @@ body {
   background-color: #fff;
   position: relative;
   margin: 0 auto;
-  padding-bottom: 60px;
+
   margin: 0 auto;
 }
 
@@ -381,6 +382,8 @@ body {
 }
 
 .job-box {
+  max-width: 100%;
+  min-height: 100px;
   margin: 16px;
   padding: 16px;
   border: 1px solid #ccc;
