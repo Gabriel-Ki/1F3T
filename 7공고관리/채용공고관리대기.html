@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>채용공고관리 – 대기</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link rel="stylesheet" href="채용공고관리.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+    <a href="Ywork.html" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+    </a>
+      <h1>공고관리  </h1>
+    </header>
+
+    <nav class="tabs">
+      <a href="채용공고관리등록.html" class="tab">등록(<span class="count">1</span>)</a>
+      <a href="채용공고관리대기.html"  class="tab active">대기(<span class="count">2</span>)</a>
+      <a href="채용공고관리마감.html" class="tab">마감(<span class="count">1</span>)</a>
+    </nav>
+
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="날짜, 공고제목, 기업명, 담당자, 공고번호 검색"/>
+      <button class="search-btn"><span class="material-icons">search</span></button>
+    </div>
+
+    <div class="filter-bar">
+      <span class="total">전체 3건</span>
+      <button class="sort-btn"><span class="material-icons">unfold_more</span>작성일순</button>
+    </div>
+
+    <section class="content">
+      <div class="card">
+        <div class="card-content">
+          <div class="item-row"><strong>공고명</strong><p>OO카페 바리스타</p></div>
+          <div class="item-row"><strong>장소</strong><p>서울시 강남구</p></div>
+          <div class="item-row"><strong>업직종</strong><p>카페, 바리스타</p></div>
+          <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
+        </div>
+        <div class="card-actions">
+            <a href="/posts/123/edit"       class="action-btn">수정</a>
+            <a href="/posts/123/draft"      class="action-btn">임시저장</a>
+            <a href="지원자관리.html" class="action-btn">지원자 관리</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="item-row"><strong>공고명</strong><p>OO편의점 매장관리</p></div>
+          <div class="item-row"><strong>장소</strong><p>서울시 송파구</p></div>
+          <div class="item-row"><strong>업직종</strong><p>편의점, 매장관리</p></div>
+          <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
+        </div>
+            <div class="card-actions">
+                <a href="/posts/123/edit"       class="action-btn">수정</a>
+                <a href="/posts/123/draft"      class="action-btn">임시저장</a>
+                <a href="지원자관리.html" class="action-btn">지원자 관리</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="채용공고등록.html" class="fab">
+        <span class="material-icons">edit</span>
+    </a>
+
+  </div>
+</body>
+</html>

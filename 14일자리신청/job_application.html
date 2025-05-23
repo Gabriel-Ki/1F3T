@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일자리 신청</title>
+    <link rel="stylesheet" href="./job_application.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <button class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="title">일자리 신청</h1>
+        </header>
+
+        <form class="application-form">
+            <!-- 지원내용 섹션 -->
+            <section class="form-section">
+                <h2 class="section-title">지원내용</h2>
+                <div class="input-group">
+                    <textarea id="company-name" class="textarea" placeholder="회사명" readonly>삼성전자</textarea>
+                    <textarea id="job-description" class="textarea" placeholder="업무내용" readonly>소프트웨어 개발 및 시스템 운영
+- 웹 애플리케이션 개발
+- 데이터베이스 관리
+- 시스템 유지보수</textarea>
+                </div>
+            </section>
+
+            <!-- 지원정보 섹션 -->
+            <section class="form-section">
+                <h2 class="section-title">지원정보</h2>
+                <div class="input-group">
+                    <input type="text" id="applicant-name" class="input-field" placeholder="이름" value="홍길동">
+                    <input type="tel" id="phone" class="input-field" placeholder="휴대전화" value="010-1234-5678">
+                    <input type="email" id="email" class="input-field" placeholder="이메일" value="hong@example.com">
+                </div>
+            </section>
+
+            <!-- 이력서 선택 섹션 -->
+            <section class="form-section">
+                <h2 class="section-title">이력서 선택</h2>
+                <div class="resume-option selected">
+                    <div class="resume-info">
+                        <div class="checkmark">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="resume-details">
+                            <h3 class="resume-title">이력서 제목</h3>
+                            <p class="resume-date">최종 수정일 2024년 05월 22일</p>
+                        </div>
+                    </div>
+                    <span class="primary-badge">대표</span>
+                </div>
+            </section>
+
+            <!-- 사장님께 한마디 섹션 -->
+            <section class="form-section">
+                <h2 class="section-title">사장님께 한마디</h2>
+                <textarea class="message-textarea" placeholder="사장님에게 어필하는 말을 입력하세요. (200자 이내)"></textarea>
+            </section>
+
+            <!-- 추가 옵션들 -->
+            <div class="additional-options">
+                <div class="option-item">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="immediate-start" class="checkbox">
+                        <label for="immediate-start" class="checkbox-label">바로 출근할 수 있어요</label>
+                    </div>
+                    <p class="option-description">지원하려는 일자리 근로일 구하는 날 짧습니다.</p>
+                </div>
+
+                <div class="option-item expandable">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="personal-info" class="checkbox">
+                        <label for="personal-info" class="checkbox-label">[필수] 개인정보 제3자 제공 동의</label>
+                    </div>
+                    <button type="button" class="expand-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 지원하기 버튼 -->
+            <button type="submit" class="submit-btn">지원하기</button>
+        </form>
+    </div>
+</body>
+</html>

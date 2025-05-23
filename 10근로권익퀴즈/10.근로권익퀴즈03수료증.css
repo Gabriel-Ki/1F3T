@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.wrapper {
+  width: 412px;
+  min-height: 100vh;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: relative;
+  padding-bottom: 100px; 
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.icon-btn {
+  size: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 수료증 카드 */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  
+}
+
+.certificate-card {
+  background-color: #00ADAD;
+  color: #fff;
+  width: 339px;
+  height: 472px;
+  border-radius: 16px;
+  padding: 10px 10px;
+  text-align: left;
+  position: relative;
+  
+  
+}
+.certificate-inner {
+  border: 3px solid #fff;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+}
+
+.certificate-title {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.certificate-subtitle {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.certificate-desc {
+  padding-top: 30px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.certificate-name {
+  padding-top: 40px;
+  font-size: 30px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.certificate-date {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.medal {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 120px;
+}
+
+/* 버튼 영역 */
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  width: 362px;
+  height: 45px; 
+  justify-content: center;   /* 👉 가운데 정렬 핵심 */
+  align-items: center;
+        
+}
+
+.btn-outline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* 아이콘과 텍스트 사이 간격 */
+  padding: 12px;
+   width: 140px;
+  height: 48px;
+  border: 1.5px solid #00ADAD;
+  background: none;
+  border-radius: 8px;
+  color: #00ADAD;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #00ADAD;
+  color: #fff;
+}
+
+.btn-outline img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* 하단 네비게이션 */
+.footer {
+  width: 100%;
+  max-width: 412px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+ 
+ 
+/* ✅ 모달 스타일 */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-box {
+      background: white;
+      width: 280px;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-message {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .modal-btn.cancel {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .modal-btn.confirm {
+      background-color: #00ADAD;
+      color: white;
+    }
+
+    /* ✅ 토스트 메시지 */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 173, 173, 0.9);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 20px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 3000;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }

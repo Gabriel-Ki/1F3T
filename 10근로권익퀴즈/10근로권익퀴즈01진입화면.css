@@ -1,0 +1,200 @@
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.wrapper {
+  width: 412px;
+  min-height: 100vh;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.icon-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle {
+  text-align: right;
+  padding: 20px;
+  line-height: 1.2; /* 더 붙게 */
+  letter-spacing: -0.3px;
+  word-spacing: -1px;
+}
+
+.subtitle p1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+}
+.subtitle p2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 30px;
+  color: #3f3f3f;
+}
+
+.subtitle .orange {
+  color: #FF8000;
+  font-size: 20px;
+}
+
+.subtitle .teal {
+  color: #00ADAD;
+  font-size: 30px;
+}
+
+.subtitle .blue {
+  color: #002AFF;
+  font-size: 30px;
+}
+
+/* 카드 박스 스타일 */
+.box {
+  width: 320px; /* 기존 365px → 작게 */
+  padding: 16px;
+  margin: 16px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+position: relative;
+}
+
+/* 이미지와 텍스트 */
+.main_image {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.main_image img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  display: block;
+}
+
+.main_image_text {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: calc(100% - 24px);
+  color: #3F3F3F;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.main_image_text .teal {
+  color: #00b3b3;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.main_image_text .blue {
+  color: #3366ff;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* 시작 버튼 (앱 스타일) */
+.start-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;  transform: translateX(-50%);
+  width: 236px;
+  height: 70px;
+  background-color: #00b3b3;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 179, 179, 0.3);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.start-btn:hover {
+  background-color: #009999;
+}
+
+.start-btn:active {
+  transform: translateX(-50%) scale(0.96);
+  box-shadow: 0 2px 6px rgba(0, 179, 179, 0.2);
+}
+
+/* 하단 네비게이션 */
+.footer {
+  width: 100%;
+  max-width: 412px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+  z-index: 1000;
+}
+
+.footer-item,
+.footer-item:visited {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.footer-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+.footer-item:hover img {
+  transform: scale(1.1);
+}
+

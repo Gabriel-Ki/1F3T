@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>IWORK - 로그인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link  rel="stylesheet" href="signin.css">
+  <link  rel="stylesheet" href="naver.css"
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 120px;
+    }
+
+    .tab {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tab button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      background: none;
+      cursor: pointer;
+    }
+
+    .tab button.active {
+      border-bottom: 3px solid #00b4aa;
+      font-weight: bold;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #00b4aa;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-login img {
+      width: 40px;
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .links a {
+      margin: 0 5px;
+      text-decoration: none;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+ <div class="container" style="text-align: center;">
+    <!-- 로고 이미지 사용 -->
+    <img src="../1처음화면/img/logo.PNG" style="display: inline-block;">
+</div>
+
+    <div class="tab">
+      <button class="active">개인회원</button>
+      <button>기업회원</button>
+    </div>
+
+    <div class="input-group">
+      <input type="text" placeholder="아이디" />
+    </div>
+
+    <div class="input-group">
+      <input type="password" placeholder="비밀번호" />
+    </div>
+
+    <button class="login-btn">로그인</button>
+
+<!-- 간편로그인 영역 -->
+<div class="social-login">
+  <img src="../2로그인/img/naver_logo.png" alt="네이버 로그인" class="social-icon">
+  <img src="../2로그인/img/FACEBOOK_logo.png" alt="페이스북 로그인" title="페이스북 로그인" class="social-icon">
+  <img src="../2로그인/img/kakao_logo.png" alt="카카오톡 로그인" title="카카오톡 로그인" class="social-icon">
+  <img src="../2로그인/img/GOOGLE_log.png" alt="구글 로그인" title="구글 로그인" class="social-icon">
+</div>
+
+    <div class="links">
+      <a href="#">아이디 찾기</a> |
+      <a href="#">비밀번호 찾기</a> |
+      <a href="#">회원가입</a>
+    </div>
+  </div>
+</body>
+</html>

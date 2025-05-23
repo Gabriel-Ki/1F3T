@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>채용공고 등록</title>
+  <link rel="stylesheet" href="채용공고등록.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <a href="Ywork.html" class="back-btn">&larr;</a>
+      <h1 class="title">채용공고 등록</h1>
+    </header>
+
+    <form class="form">
+      <label for="title">채용공고 제목<span class="required">*</span></label>
+      <input type="text" id="title" maxlength="50" placeholder="제목을 적어주세요.(50자 이내)" required />
+
+      <label for="conditions">근무조건<span class="required">*</span></label>
+      <textarea id="conditions" rows="4" maxlength="300" placeholder="근무조건을 적어주세요.(최대 300자 이내)" required></textarea>
+
+      <div class="inline-group">
+        <div class="field">
+          <label for="deadline">모집마감<span class="required">*</span></label>
+          <input type="date" id="deadline" required />
+        </div>
+        <div class="field">
+          <label for="number">모집인원<span class="required">*</span></label>
+          <input type="number" id="number" min = "0" step = "1" placeholder="" required />
+        </div>
+      </div>
+
+      <div class="inline-group">
+        <div class="field">
+          <label for="area">모집분야<span class="required">*</span></label>
+          <select id="area" required>
+            <option value="">선택하세요</option>
+            <option>판매</option>
+            <option>서비스</option>
+            <option>사무</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="education">학력2</label>
+          <select id="education">
+            <option value="">선택하세요</option>
+            <option>학력 무관</option>
+            <option>중학교 재학중</option>
+            <option>중학교 졸업</option>
+            <option>고등학교 재학중</option>
+            <option>고등학교 졸업</option>
+        </select>
+        </div>
+      </div>
+
+      <label for="prefer">우대사항</label>
+      <input type="text" id="prefer" placeholder="우대사항을 적어주세요. 예) 인근 거주자 등" />
+
+      <label for="location">근무지역<span class="required">*</span></label>
+      <div class="address-search">
+        <input type="text" id="location" placeholder="도로명 주소를 적어주세요. 예) 세종대로 110" required />
+        <button type="button" class="search-btn">검색</button>
+      </div>
+      <input type="text" id="location-detail" placeholder="상세 주소를 적어주세요. 예) 서울특별시청 1층" />
+
+      <label for="details">상세요강</label>
+      <textarea id="details" rows="6" maxlength="600" placeholder="상세내용을 적어주세요. (최대 600자 이내)"></textarea>
+
+    <label>이미지 등록</label>
+        <div class="image-upload-wrapper">
+            <div class="image-upload">
+                <span>이곳에 이미지를 업로드하거나<br>드래그 앤 드랍 해주세요.</span>
+                <input type="file" id="upload" accept=".jpg,.png" />
+            </div>
+            <p class="note">
+                이미지 파일은 JPG, PNG 파일만 등록 가능합니다.<br>
+                최대 1MB 이하 파일만 업로드할 수 있어요.
+            </p>
+            <button type="button" class="file-btn">파일 찾기</button>
+        </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn draft" disabled>임시저장</button>
+        <button type="submit" class="btn submit">등록하기</button>
+      </div>
+    </form>
+  </div>
+
+<!-- 
+    더 넣어야할 것
+    이미지 드래그 앤 드랍
+    진짜 등록하기 구현(DB?)
+    도로명 주소?
+    폰트     
+-->
+
+  <script>
+  const uploadInput = document.getElementById('upload');
+  const uploadArea  = document.querySelector('.upload-area');
+  const fileBtn     = document.querySelector('.file-btn');
+
+  // 버튼 클릭 시 파일 선택창 열기
+  fileBtn.addEventListener('click', () => uploadInput.click());
+
+  // 인풋에서 파일 선택 완료
+  uploadInput.addEventListener('change', (e) => {
+    if (!e.target.files.length) return;
+    handleFile(e.target.files[0]);
+  });
+
+  // 드래그 오버
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
+
+  // 드롭
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    const files = e.dataTransfer.files;
+    if (files.length && /\.(jpe?g|png)$/i.test(files[0].name) && files[0].size <= 1024*1024) {
+      // 파일을 input 에도 등록해두면 폼 전송 시 업로드됩니다.
+      uploadInput.files = files;
+      handleFile(files[0]);
+    } else {
+      alert('JPG/PNG만, 최대 1MB 이하 파일만 등록 가능합니다.');
+    }
+  });
+
+  // 파일 처리 함수 (예: 썸네일 미리보기)
+  function handleFile(file) {
+    // TODO: 필요시 미리보기 처리
+    console.log('등록된 파일:', file);
+  }
+</script>
+
+
+</body>
+</html>
