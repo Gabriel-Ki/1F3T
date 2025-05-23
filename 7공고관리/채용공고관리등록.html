@@ -16,11 +16,16 @@
       <h1>공고관리</h1>
     </header>
 
-    <nav class="tabs">
-      <a href="채용공고관리등록.html" class="tab active">등록(<span class="count">1</span>)</a>
-      <a href="채용공고관리대기.html"  class="tab">대기(<span class="count">2</span>)</a>
-      <a href="채용공고관리마감.html" class="tab">마감(<span class="count">1</span>)</a>
-    </nav>
+  <nav class="tabs">
+    <a href="채용공고관리등록.html" class="tab active"> 등록(<span class="count">–</span>)
+    </a>
+    <a href="채용공고관리대기.html"  class="tab">
+      대기(<span class="count">–</span>)
+    </a>
+    <a href="채용공고관리마감.html" class="tab">
+      마감(<span class="count">–</span>)
+    </a>
+  </nav>
 
     <div class="search-container">
       <input type="text" class="search-input" placeholder="날짜, 공고제목, 기업명, 담당자, 공고번호 검색"/>
@@ -65,6 +70,36 @@
     document.querySelector('.filter-bar .total')
       .textContent = `전체 ${count}건`;
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  // 모든 탭을 순회
+  document.querySelectorAll('.tabs .tab').forEach(async tab => {
+    const href = tab.getAttribute('href');
+    try {
+      // 1) 해당 페이지 HTML 가져오기
+      const res  = await fetch(href, { cache: 'no-cache' });
+      const text = await res.text();
+      // 2) 파싱해서 DOM 얻기
+      const doc = new DOMParser().parseFromString(text, 'text/html');
+      // 3) .content .card 개수 세기
+      const cnt = doc.querySelectorAll('.content .card').length;
+      // 4) 탭 안 .count 업데이트
+      tab.querySelector('.count').textContent = cnt;
+    } catch (e) {
+      console.error(`Failed to load ${href}:`, e);
+      tab.querySelector('.count').textContent = '0';
+    }
+  });
+
+  // **현재 페이지**에서는 active 클래스도 붙여주기
+  const path = location.pathname.split('/').pop();
+  document.querySelectorAll('.tabs .tab').forEach(tab => {
+    if (tab.getAttribute('href') === path) {
+      tab.classList.add('active');
+    }
+  });
+});
+
 </script>
 
 </body>

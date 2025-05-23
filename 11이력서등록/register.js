@@ -1,3 +1,18 @@
+const regionSelector = document.getElementById("regionSelector");
+const selectedRegions = document.getElementById("selectedRegions");
+
+regionSelector.addEventListener("change", () => {
+    const region = regionSelector.value;
+    if (region && ![...selectedRegions.children].some(btn => btn.textContent === region)) {
+        const button = document.createElement("button");
+        button.className = "btn btn-secondary";
+        button.textContent = region;
+        button.onclick = () => button.remove();
+        selectedRegions.appendChild(button);
+    }
+    regionSelector.value = "";
+});
+
 // 파일 업로드 처리
 document.getElementById('photoUpload').addEventListener('change', function (e) {
     const file = e.target.files[0];
