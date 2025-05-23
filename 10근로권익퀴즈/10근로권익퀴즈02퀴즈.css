@@ -1,24 +1,28 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+body {
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
 }
 
-body, html {
-  height: 100%;
-  font-family: 'Paperlogy', Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  overflow: auto;
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
 }
 
 .wrapper {
-  width: 412px;
-  height: 100vh;
-  background-color: #fff;
+  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
+  width: 100%;
+  max-width: 412px;
+  min-height: 100vh;
   border: 1px solid #ccc;
-  padding-bottom: 100px
+  background-color: #fff;
+  position: relative;
+  margin: 0 auto;
 }
 
 .header {
@@ -57,6 +61,7 @@ body, html {
 }
 
 #question-text {
+  font-family: 'Paperlogy', sans-serif;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -64,6 +69,7 @@ body, html {
 }
 
 .choice-btn {
+  font-family: 'Paperlogy', sans-serif;
   font-weight: 400;
   display: block;
   width: 100%;

@@ -1,25 +1,27 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body {
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
 }
 
-body, html {
-  height: 100%;
+html, body {
+  overflow-x: hidden;
+}
+
+body {
   font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  overflow: auto;
+  margin: 0;
+  background: #fff;
+  color: #333;
 }
 
 .wrapper {
-  width: 412px;
+  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
+  width: 100%;
+  max-width: 412px;
   min-height: 100vh;
   border: 1px solid #ccc;
   background-color: #fff;
   position: relative;
-  padding-bottom: 100px; 
+  margin: 0 auto;
 }
 
 /* 헤더 */
@@ -70,23 +72,29 @@ body, html {
   
 }
 .certificate-inner {
+  box-sizing: border-box;
   border: 3px solid #fff;
   border-radius: 10px;
   padding: 20px;
   height: 100%;
 }
 
+
 .certificate-title {
-  padding-top: 20px;
+  padding-top: 10px;   
   font-size: 20px;
   font-weight: 400;
+  margin-bottom: 0;   
 }
 
 .certificate-subtitle {
   font-size: 45px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 700;
+  margin-top: 5px;    
+  margin-bottom: 10px; 
 }
+
+
 
 .certificate-desc {
   padding-top: 30px;

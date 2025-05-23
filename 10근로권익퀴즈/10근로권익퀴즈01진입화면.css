@@ -72,28 +72,32 @@
 }
 
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body {
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
 }
 
-body, html {
-  height: 100%;
-  font-family:'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  overflow: auto;
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
 }
 
 .wrapper {
-  width: 412px;
+  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
+  width: 100%;
+  max-width: 412px;
   min-height: 100vh;
+  border: 1px solid #ccc;
   background-color: #fff;
-  border: 1px solid #ddd;
   position: relative;
-  padding-bottom: 100px;
+  margin: 0 auto;
+
+  margin: 0 auto;
 }
 
 /* 헤더 */
@@ -121,23 +125,24 @@ body, html {
 }
 
 .subtitle {
-  margin-top: 30px; 
+  margin-top: 30px;
   text-align: right;
   padding: 20px;
-  line-height: 1.2; /* 더 붙게 */
+  line-height: 1.1; /* 줄 간격 작게 */
   letter-spacing: -0.3px;
-  word-spacing: -1px;
+  font-weight: 700;
 }
 
-.subtitle p1 {
+.subtitle p1{
   margin: 0;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 20px;
   color: #333;
 }
+
 .subtitle p2 {
   margin: 0;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 30px;
   color: #3f3f3f;
 }
@@ -145,21 +150,23 @@ body, html {
 .subtitle .orange {
   color: #FF8000;
   font-size: 20px;
+  font-weight: 700;
 }
 
 .subtitle .teal {
   color: #00ADAD;
   font-size: 30px;
+  font-weight: 700;
 }
 
 .subtitle .blue {
   color: #002AFF;
   font-size: 30px;
+  font-weight: 700;
 }
 
 .box {
-  width: 90%;             /*  비율로 설정 */
-  max-width: 450px;       /*너무 커지지 않도록 제한 */
+  width: 80%;             /*  비율로 설정 */
   margin: 16px auto;
   padding: 16px;
   border-radius: 12px;
