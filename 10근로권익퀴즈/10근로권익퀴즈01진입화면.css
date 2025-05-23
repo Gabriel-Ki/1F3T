@@ -1,113 +1,43 @@
-/* 폰트 */
-/* Paperlogy 폰트: Thin (아주 얇은 글씨)
-   - 주로 부가 설명, 날짜, 캡션 등에 사용 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-1Thin.ttf') format('truetype');
-  font-weight: 100;
-}
-
-/* Paperlogy 폰트: ExtraLight (매우 가는 글씨)
-   - 얇은 강조가 필요한 경우 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-}
-
-/* Paperlogy 폰트: Light (가는 글씨)
-   - 부드러운 본문용, 서브텍스트 등 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-3Light.ttf') format('truetype');
-  font-weight: 300;
-}
-
-/* Paperlogy 폰트: Regular (기본 굵기)
-   - 기본 본문, 일반적인 텍스트에 사용 */
 @font-face {
   font-family: 'Paperlogy';
   src: url('./fonts/Paperlogy-4Regular.ttf') format('truetype');
   font-weight: 400;
 }
-
-/* Paperlogy 폰트: Medium (약간 굵은 기본)
-   - 일반 본문보다 살짝 강조가 필요한 경우 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-5Medium.ttf') format('truetype');
-  font-weight: 500;
-}
-
-/* Paperlogy 폰트: SemiBold (조금 굵은 글씨)
-   - 버튼, 강조 문구에 적합 */
 @font-face {
   font-family: 'Paperlogy';
   src: url('./fonts/Paperlogy-6SemiBold.ttf') format('truetype');
   font-weight: 600;
 }
-
-/* Paperlogy 폰트: Bold (굵은 글씨)
-   - 제목, 카드 타이틀, 버튼 강조에 사용 */
 @font-face {
   font-family: 'Paperlogy';
   src: url('./fonts/Paperlogy-7Bold.ttf') format('truetype');
   font-weight: 700;
 }
 
-/* Paperlogy 폰트: ExtraBold (매우 굵은 글씨)
-   - 강한 강조가 필요한 제목, 포스터 등에 사용 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-}
-
-/* Paperlogy 폰트: Black (가장 굵은 글씨)
-   - 헤드라인, 포인트 타이틀, 시각적 중심에 사용 */
-@font-face {
-  font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-9Black.ttf') format('truetype');
-  font-weight: 900;
-}
-
-
 body {
+  margin: 0;
   font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-}
-
-html, body {
+  background-color: #fff;
+  color: #333;
   overflow-x: hidden;
 }
 
-body {
-  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #333;
-}
-
 .wrapper {
-  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
-  width: 100%;
   max-width: 412px;
+  margin: 0 auto;
   min-height: 100vh;
   border: 1px solid #ccc;
-  background-color: #fff;
-  position: relative;
-  margin: 0 auto;
-
-  margin: 0 auto;
+  padding-bottom: 100px;
+  background: #fff;
 }
 
-/* 헤더 */
 .header {
   display: flex;
   align-items: center;
   padding: 15px 20px;
-  background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
   font-weight: 700;
+  background-color: #fff;
 }
 
 .icon-btn {
@@ -121,22 +51,17 @@ body {
 .header-title {
   font-size: 18px;
   font-weight: 700;
-  color: #333;
 }
 
 .subtitle {
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: right;
   padding: 30px;
-  line-height: 1.2; 
-  letter-spacing: -0.3px;
+  line-height: 1.1;
   font-weight: 700;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 .subtitle p {
-  margin: 0;         
-  padding: 0;
+  margin: 0;
 }
 .subtitle p1{
   font-weight: 400;
@@ -150,47 +75,31 @@ body {
   color: #3f3f3f;
 }
 
-.subtitle .orange {
-  color: #FF8000;
-  font-size: 20px;
-  font-weight: 700;
-}
 
-.subtitle .teal {
-  color: #00ADAD;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.subtitle .blue {
-  color: #002AFF;
-  font-size: 30px;
-  font-weight: 700;
-}
+.orange { color: #FF8000; font-size: 20px; font-weight: 700; }
+.teal   { color: #00ADAD;  font-size: 30px; font-weight: 700; }
+.blue   { color: #002AFF;  font-size: 30px; font-weight: 700; }
 
 .box {
-  width: 80%;           
+  width: 80%;
   padding: 16px;
+  margin: 8px auto 16px auto;
   border-radius: 12px;
+  background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
-  background: white;
-  margin: 8px auto 16px auto;
 }
 
-/* 이미지와 텍스트 */
 .main_image {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100%;
   border-radius: 10px;
+  width: 100%;
 }
 
 .main_image img {
-  width: 100%;           
-  max-width: 100%;
-  height: auto;
+  width: 100%;
   border-radius: 10px;
   object-fit: contain;
 }
@@ -202,38 +111,29 @@ body {
   width: calc(100% - 24px);
   color: #3F3F3F;
   font-size: 17px;
-  letter-spacing: -0.5px;
-  font-weight: normal;
-  text-align: left;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: textFadeUp 0.8s ease-out 0.4s forwards;
 }
 
-.main_image_text .teal {
-  color: #00b3b3;
-  font-weight: 600;
-  font-size: 17px;
-}
-
-.main_image_text .blue {
-  color: #3366ff;
-  font-weight: 600;
-  font-size: 17px;
-}
+.main_image_text .teal { color: #00b3b3;font-size: 17px; font-weight: 600; }
+.main_image_text .blue { color: #3366ff;font-size: 17px; font-weight: 600; }
 
 .start-btn {
-  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  font-weight: 700;
   position: absolute;
   bottom: 10px;
   left: 50%;
-  transform: translate(-50%, 20px); /* ✅ X: 가운데, Y: 아래에서 시작 */
+  transform: translate(-50%, 20px);
   width: 236px;
   height: 70px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Paperlogy', sans-serif;
   background-color: #00b3b3;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 24px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 179, 179, 0.3);
   transition: all 0.3s ease;
@@ -242,23 +142,14 @@ body {
   animation: fadeUpBtn 0.8s ease-out 0.8s forwards;
 }
 
-@keyframes fadeUpBtn {
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0); /* ✅ Y축 0으로 → 제자리로 부드럽게 올라옴 */
-  }
-}
-
 .start-btn:hover {
   background-color: #009999;
 }
-
 .start-btn:active {
-  transform: translate(-50%, 0) scale(0.96); /* ✅ 클릭 시에도 X 중심 유지 */
+  transform: translate(-50%, 0) scale(0.96);
   box-shadow: 0 2px 6px rgba(0, 179, 179, 0.2);
 }
 
-/* 하단 네비게이션 */
 .footer {
   width: 100%;
   max-width: 412px;
@@ -268,21 +159,19 @@ body {
   transform: translateX(-50%);
   display: flex;
   justify-content: space-around;
-  padding: 8px 0;
-  border-top: 1px solid #e0e0e0;
   background: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 8px 0;
   z-index: 1000;
 }
 
-.footer-item,
-.footer-item:visited {
-  text-decoration: none;
-  color: #333;
+.footer-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 10px;
-  transition: transform 0.2s ease;
+  color: #333;
+  text-decoration: none;
 }
 
 .footer-item img {
@@ -295,13 +184,19 @@ body {
   transform: scale(1.1);
 }
 
+/* 애니메이션 키프레임 */
+@keyframes textFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-
-/* 📌 이미지 등장 (확대 + 페이드인) */
-.animated-img {
-  opacity: 0;
-  transform: scale(0.95);
-  animation: zoomInImg 0.8s ease-out forwards;
+@keyframes fadeUpBtn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 @keyframes zoomInImg {
@@ -311,30 +206,8 @@ body {
   }
 }
 
-/* 📌 이미지 위 텍스트 애니메이션 (위로 슬며시 등장) */
-.main_image_text {
+.animated-img {
   opacity: 0;
-  transform: translateY(10px);
-  animation: textFadeUp 0.8s ease-out 0.4s forwards;
-}
-
-@keyframes textFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 📌 버튼 애니메이션 (조금 더 느리게 등장) */
-.start-btn {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUpBtn 0.8s ease-out 0.8s forwards;
-}
-
-@keyframes fadeUpBtn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transform: scale(0.95);
+  animation: zoomInImg 0.8s ease-out forwards;
 }
