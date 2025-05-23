@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>기업회원 가입</title>
+  <link rel="stylesheet" href="company-signup.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <header class="signup-header">
+      <button class="back-btn">←</button>
+      <h2>기업회원 가입</h2>
+    </header>
+
+    <form class="signup-form">
+      <div class="radio-group">
+        <label><input type="radio" name="auth-method" checked /> 휴대폰 인증</label>
+        <label><input type="radio" name="auth-method" /> 아이핀(PIN) 인증</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" placeholder="본인인증을 완료하시면 입력 가능" />
+        <button class="btn small">인증하기</button>
+      </div>
+
+      <input type="text" placeholder="아이디" />
+      <input type="password" placeholder="비밀번호" />
+      <input type="text" placeholder="이름" />
+
+      <div class="input-group">
+        <input type="text" placeholder="이메일" />
+        <select><option>선택</option></select>
+      </div>
+
+      <input type="text" placeholder="회사명(법인명)" />
+      <input type="text" placeholder="대표자명" />
+
+      <div class="input-group">
+        <input type="text" placeholder="회사/사업장 주소" />
+        <button class="btn small">주소검색</button>
+      </div>
+
+      <div class="input-group">
+        <input type="text" placeholder="전화번호 앞자리" />
+        <input type="text" placeholder="나머지 번호" />
+      </div>
+
+      <div class="file-upload">
+        <label>사업자 등록증</label>
+        <div class="upload-box">이미지 파일을 드래그하거나<br> 클릭하여 업로드</div>
+        <button class="btn small">파일 찾기</button>
+      </div>
+
+      <div class="terms-box">
+        <label><input type="checkbox" /> 이용약관 전체동의</label>
+        <ul>
+          <li><input type="checkbox" /> [필수] 만 15세 이상입니다.</li>
+          <li><input type="checkbox" /> [필수] 서비스 이용약관 동의</li>
+          <li><input type="checkbox" /> [필수] 개인정보 수집 및 이용 동의</li>
+          <li><input type="checkbox" /> [선택] 광고성 정보 수신 동의</li>
+        </ul>
+      </div>
+
+      <button class="btn full">가입하기</button>
+    </form>
+  </div>
+</body>
+</html>
