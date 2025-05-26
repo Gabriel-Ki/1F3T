@@ -103,13 +103,14 @@ a, a:visited {
 .back-btn {
   font-size: 24px;
   line-height: 1;
+
 }
 .title {
   flex: 1;
   margin-left: 8px;
   text-align: left;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* form */
@@ -138,6 +139,11 @@ a, a:visited {
   border-radius: 4px;
   font-size: 14px;
 }
+
+.form label {
+  font-weight: 700; 
+}
+
 .inline-group {
   display: flex;
   gap: 8px;
@@ -235,6 +241,7 @@ a, a:visited {
   border: none;
   border-radius: 4px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -248,6 +255,7 @@ a, a:visited {
   flex: 1;
   padding: 12px 0;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 4px;
   border: none;
 }
