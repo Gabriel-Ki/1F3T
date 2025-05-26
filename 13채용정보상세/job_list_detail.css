@@ -186,7 +186,7 @@ body {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
 }
 
@@ -201,38 +201,7 @@ body {
     color: #666;
 }
 
-/* Certificate Section */
-.certificate-section {
-    padding: 20px;
-    background: #fff3e0;
-    margin: 20px;
-    border-radius: 12px;
-    text-align: center;
-}
 
-.certificate-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.certificate-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #ff6b00;
-    margin-bottom: 10px;
-}
-
-.certificate-subtitle {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-.certificate-desc {
-    font-size: 12px;
-    color: #999;
-    line-height: 1.4;
-}
 
 /* Bottom Section */
 .bottom-section {
@@ -299,27 +268,37 @@ body {
 
 /* Bottom Navigation */
 .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
     display: flex;
     justify-content: space-around;
-    padding: 15px 0;
-    background: white;
-    border-top: 1px solid #eee;
+    align-items: center;
+    padding: 6px 0;
+    z-index: 100;
 }
 
 .nav-item {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 12px;
-    color: #666;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 8px 4px;
     cursor: pointer;
-}
-
-.nav-item.active {
-    color: #00ADAD;
+    color: #999;
+    font-size: 12px;
 }
 
 .nav-icon {
-    font-size: 20px;
-    margin-bottom: 5px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
 }

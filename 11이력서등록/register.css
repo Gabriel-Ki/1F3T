@@ -74,9 +74,13 @@ header {
     margin-left: 4px;
 }
 
+.form-title {
+    display: inline-block;
+}
+
 .form-input {
     width: 100%;
-    padding: 12px;
+    padding: 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
@@ -90,6 +94,31 @@ header {
 
 .form-input::placeholder {
     color: #999;
+}
+
+.form-label-inline {
+    width: 60px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-label-inline1 {
+    width: 48px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.email-separator {
+    margin: 0 2px;
+}
+
+.form-group.align-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .file-upload-area {
@@ -132,6 +161,7 @@ header {
 
 .dropdown-wrapper {
     position: relative;
+    display: inline-block;
 }
 
 .dropdown {
