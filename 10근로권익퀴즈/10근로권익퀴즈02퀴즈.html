@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>근로권익 퀴즈</title>
   <link rel="stylesheet" href="10근로권익퀴즈02퀴즈.css" />
-  
 </head>
 <body>
   <div class="wrapper">
@@ -37,11 +36,20 @@
     </div>
   </div>
 
-  <!-- ✅ 모달 안내창 -->
+  <!-- 채용공고 이동 모달 -->
   <div class="modal-overlay" id="custom-modal">
     <div class="modal-content">
       <p>Y:WORK 추천 일자리 목록으로 이동합니다!</p>
-      <button class="modal-btn" onclick="goToJobPage()">확인</button>
+      <button class="modal-btn confirm" onclick="goToJobPage()">확인</button>
+    </div>
+  </div>
+
+  <!-- 근로권익 콘텐츠 이동 모달 -->
+  <div class="modal-overlay" id="content-modal">
+    <div class="modal-content">
+      <p>근로권익 교육 페이지로<br>이동하시겠습니까?</p>
+      <button class="modal-btn cancel" onclick="closeContentModal()">취소</button>
+      <button class="modal-btn confirm" onclick="goToContentPage()">이동</button>
     </div>
   </div>
 
@@ -127,18 +135,31 @@
         resultDesc.innerHTML = `조금 더 공부하면 근로권익을 잘 알 수 있어요.<br />다시 도전해서 꼭 합격해 보세요!`;
 
         actionButtons.innerHTML = `
-          <button class="action-btn" onclick="alert('근로권익 콘텐츠 페이지로 이동')">근로콘텐츠 보러가기</button>
+          <button class="action-btn" onclick="openContentModal()">근로콘텐츠 보러가기</button>
           <button class="action-btn" onclick="location.reload()">퀴즈 다시 풀기</button>
         `;
       }
     }
 
     function alertAndRedirect() {
-      modal.style.display = 'flex'; // 모달 보이기
+      modal.style.display = 'flex';
     }
 
     function goToJobPage() {
       window.location.href = '../12채용정보/job_listing_page.html';
+    }
+
+    function openContentModal() {
+      document.getElementById("content-modal").style.display = "flex";
+    }
+
+    function closeContentModal() {
+      document.getElementById("content-modal").style.display = "none";
+    }
+
+    function goToContentPage() {
+      window.open("https://www.youthlabor.co.kr/education/class", "_blank");
+      closeContentModal();
     }
 
     loadQuestion();
