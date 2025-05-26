@@ -1,13 +1,69 @@
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 /* Reset & 기본 설정 */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body, html {
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: Paperlogy, sans-serif;
   background-color: #f0f0f0;
 }
 a:visited {
@@ -62,6 +118,7 @@ header h1 {
   padding: 12px 0;
   text-decoration: none;
   font-size: 14px;
+  font-weight: 700;
   color: #555;
   position: relative;
 }
@@ -87,6 +144,7 @@ header h1 {
   padding: 8px;        /* 패딩도 줄여서 전체 폭 축소 */
   font-size: 14px;
   border: 1px solid #ddd;
+  font-family: 'Paperlogy', sans-serif;
   border-radius: 4px;
 }
 
@@ -112,6 +170,8 @@ header h1 {
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-family: 'Paperlogy', sans-serif;
+
 }
 .sort-btn .material-icons {
   font-size: 18px;

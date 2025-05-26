@@ -28,7 +28,7 @@
         </div>
         <div class="field">
           <label for="number">모집인원<span class="required">*</span></label>
-          <input type="number" id="number" min = "0" step = "1" placeholder="" required />
+          <input type="number" id="number" min = "0" max="999" step = "1" placeholder="" required />
         </div>
       </div>
 
@@ -41,17 +41,6 @@
             <option>서비스</option>
             <option>사무</option>
           </select>
-        </div>
-        <div class="field">
-          <label for="education">학력2</label>
-          <select id="education">
-            <option value="">선택하세요</option>
-            <option>학력 무관</option>
-            <option>중학교 재학중</option>
-            <option>중학교 졸업</option>
-            <option>고등학교 재학중</option>
-            <option>고등학교 졸업</option>
-        </select>
         </div>
       </div>
 
@@ -70,10 +59,11 @@
 
     <label>이미지 등록</label>
         <div class="image-upload-wrapper">
-            <div class="image-upload">
-                <span>이곳에 이미지를 업로드하거나<br>드래그 앤 드랍 해주세요.</span>
-                <input type="file" id="upload" accept=".jpg,.png" />
-            </div>
+          <div class="image-upload">
+            <img src="../공통/img/material-symbols-light_upload.png" alt="upload icon" />
+            <span>이곳에 이미지를 업로드하거나<br>드래그 앤 드랍 해주세요.</span>
+            <input type="file" id="upload" accept=".jpg,.png" />
+          </div>
             <p class="note">
                 이미지 파일은 JPG, PNG 파일만 등록 가능합니다.<br>
                 최대 1MB 이하 파일만 업로드할 수 있어요.
@@ -132,12 +122,13 @@
       alert('JPG/PNG만, 최대 1MB 이하 파일만 등록 가능합니다.');
     }
   });
-
-  // 파일 처리 함수 (예: 썸네일 미리보기)
-  function handleFile(file) {
-    // TODO: 필요시 미리보기 처리
-    console.log('등록된 파일:', file);
-  }
+  const numInput = document.getElementById('number');
+  numInput.addEventListener('input', () => {
+    // 문자열 길이가 3을 넘으면 앞 세 글자만 남김
+    if (numInput.value.length > 3) {
+      numInput.value = numInput.value.slice(0, 3);
+    }
+  });
 </script>
 
 
