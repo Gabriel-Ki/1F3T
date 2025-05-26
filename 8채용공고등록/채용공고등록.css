@@ -70,6 +70,7 @@ button {
 body, html {
   height: 100%;
   font-family: 'Paperlogy', sans-serif;
+  color: #3f3f3f;
   background: #f0f0f0;
 }
 a, a:visited {
@@ -109,7 +110,7 @@ a, a:visited {
   flex: 1;
   margin-left: 8px;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
 }
 
