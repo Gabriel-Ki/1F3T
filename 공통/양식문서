@@ -1,0 +1,146 @@
+# font
+    제목 paperlogy - 7Bold 
+        ex) 버튼, 추천공고같은 글씨, 헤드, 눌러서 링크이동하는 아이콘 글씨
+    일반 paperlogy - 5Medium
+        ex) 내용글, footer의 글씨, 검색창의 안내글
+    보조 paperlogy - 3Light
+        ex) 작게 쓰는 안내글, 개수제한의 숫자, 
+
+# color
+    기본 색 #00adad
+
+    글씨 색 #3f3f3f
+    보조글씨 색 #c4c4c4
+    그리드 색 #f3f3f3
+    주석 색 #ff9500
+
+    주황색 #ff8000
+    파란색 #002aff
+    핑크색 #ff00b2
+    하늘색 #008cff
+    빨강색 #ff0000
+
+# 텍스트박스 
+    150자 당 100px 
+
+
+
+# footer 하단 태그
+#html
+        <footer class="footer">
+            <a href="chat.html" class="footer-item">
+                <img src="./img/teenyicons_chatbot-outline.png" alt="AI채팅">
+                <span>AI상담</span>
+            </a>
+            <a href="map.html" class="footer-item">
+                <img src="./img/uiw_map.png" alt="알바지도">
+                <span>알바지도</span>
+            </a>
+            <a href="./Ywork.html" class="footer-item">
+                <img src="./img/Group 111.png" alt="홈">
+                <span>홈</span>
+            </a>
+            <a href="forum.html" class="footer-item">
+                <img src="./img/ep_chat-dot-round.png" alt="채팅">
+                <span>채팅</span>
+            </a>
+            <a href="account.html" class="footer-item">
+                <img src="./img/iconamoon_profile-light.png" alt="마이페이지">
+                <span>마이페이지</span>
+            </a>
+        </footer>
+
+# CSS
+.footer {
+  width: 100%;
+  max-width: 412px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+  z-index: 1000;
+}
+
+.footer-item,
+.footer-item:visited {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.footer-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+.footer-item:hover img {
+  transform: scale(1.1);
+}
+
+
+# font-face
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}

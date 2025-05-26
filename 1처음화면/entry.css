@@ -1,10 +1,13 @@
+/* 전역 설정 */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Outfit', 'Arial', sans-serif;
+  font-family: 'Paperlogy', sans-serif;
+  color: #3f3f3f;
 }
 
+/* 배경 및 레이아웃 */
 body {
   height: 100vh;
   background: linear-gradient(135deg, #E0F7FA, #FFF3E0);
@@ -14,10 +17,11 @@ body {
   overflow: hidden;
 }
 
+/* 컨테이너 */
 .container {
   width: 360px;
   height: 640px;
-  background-color: #00b3b3;
+  background-color: #00adad;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -27,15 +31,17 @@ body {
   animation: fadeSlideIn 1s ease-out forwards;
 }
 
+/* 로고 */
 .logo img {
   width: 100px;
-  height: auto; /* 비율 유지하여 왜곡 방지 */
+  height: auto;
   margin-bottom: 40px;
   opacity: 0;
   transform: scale(0.8) rotate(-4deg);
   animation: popLogo 1.2s ease-out forwards;
 }
 
+/* 버튼 그룹 */
 .button-group {
   margin-top: 40px;
   display: flex;
@@ -46,12 +52,14 @@ body {
   animation: fadeUp 1s ease-out 1s forwards;
 }
 
+/* 버튼 */
 .btn {
   width: 200px;
   padding: 14px;
   font-size: 16px;
-  font-weight: bold;
-  color: #00ADAD;
+  font-weight: 700; /* 7Bold */
+  font-family: 'Paperlogy', sans-serif;
+  color: #00adad;
   background-color: white;
   border: none;
   border-radius: 10px;
@@ -65,7 +73,7 @@ body {
   transform: scale(1.05);
 }
 
-/* 애니메이션 정의 */
+/* 애니메이션 */
 @keyframes popLogo {
   0% { opacity: 0; transform: scale(0.8) rotate(-4deg); }
   60% { transform: scale(1.15) rotate(2deg); opacity: 1; }
@@ -88,4 +96,57 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 푸터 */
+.footer {
+  width: 100%;
+  max-width: 412px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #f3f3f3;
+  background: #fff;
+  z-index: 1000;
+}
+
+.footer-item,
+.footer-item:visited {
+  text-decoration: none;
+  color: #3f3f3f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700; /* 강조 텍스트 */
+  font-family: 'Paperlogy', sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.footer-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+.footer-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 보조 텍스트 클래스 */
+.helper-text {
+  font-weight: 300;
+  color: #c4c4c4;
+  font-size: 12px;
+}
+
+/* 일반 텍스트 클래스 */
+.body-text {
+  font-weight: 500;
+  color: #3f3f3f;
+  font-size: 14px;
 }

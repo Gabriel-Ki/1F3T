@@ -3,6 +3,9 @@
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  font-family: 'Paperlogy';
+  font-weight: 500; /* 일반 텍스트용: 5Medium */
+  color: #3f3f3f; /* 기본 글씨 색 */
 }
 
 .social-login img {
