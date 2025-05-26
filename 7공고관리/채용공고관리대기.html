@@ -11,7 +11,7 @@
   <div class="wrapper">
     <header>
     <a href="../6메인/Ywork.html" class="back-btn">
-        <span class="material-icons">arrow_back</span>
+        <img src="../공통/img/뒤로가기.png" alt="back-btn"/>
     </a>
       <h1>공고관리  </h1>
     </header>
@@ -29,7 +29,7 @@
   </nav>
 
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="날짜, 공고제목, 기업명, 담당자, 공고번호 검색"/>
+      <input type="text" class="search-input" placeholder="공고제목, 기업명, 업직종 검색"/>
       <button class="search-btn"><span class="material-icons">search</span></button>
     </div>
 
@@ -49,9 +49,8 @@
           <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
         </div>
         <div class="card-actions">
-            <a href="/posts/123/edit"       class="action-btn">수정</a>
-            <a href="/posts/123/draft"      class="action-btn">임시저장</a>
-            <a href="지원자관리.html" class="action-btn">지원자 관리</a>
+          <a href="/posts/123/edit"       class="action-btn">수정</a>
+          <button type="button" class="action-btn delete-btn">삭제</button>        
         </div>
       </div>
       <div class="card">
@@ -62,9 +61,8 @@
           <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
         </div>
             <div class="card-actions">
-                <a href="/posts/123/edit"       class="action-btn">수정</a>
-                <a href="/posts/123/draft"      class="action-btn">임시저장</a>
-                <a href="지원자관리.html" class="action-btn">지원자 관리</a>
+              <a href="/posts/123/edit"       class="action-btn">수정</a>
+              <button type="button" class="action-btn delete-btn">삭제</button>        
             </div>
         </div>
     </section>
@@ -110,6 +108,22 @@
     if (tab.getAttribute('href') === path) {
       tab.classList.add('active');
     }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const confirmed = confirm('삭제하시겠습니까?');
+      if (confirmed) {
+        // TODO: 실제 삭제 요청 (예: fetch('/posts/'+btn.dataset.id, { method: 'DELETE' }))
+        alert('삭제되었습니다');
+        // 화면에서 카드 제거하려면 아래 주석 해제
+        // btn.closest('.card').remove();
+      } else {
+        alert('취소되었습니다');
+      }
+    });
   });
 });
 

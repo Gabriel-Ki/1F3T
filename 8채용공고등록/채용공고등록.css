@@ -1,4 +1,67 @@
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./font/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
 /* reset & 기본 */
+
+/* 모든 폼 컨트롤에 Paperlogy 폰트 적용 */
+input,
+textarea,
+select,
+button {
+  font-family: 'Paperlogy', sans-serif;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +69,8 @@
 }
 body, html {
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Paperlogy', sans-serif;
+  color: #3f3f3f;
   background: #f0f0f0;
 }
 a, a:visited {
@@ -40,13 +104,14 @@ a, a:visited {
 .back-btn {
   font-size: 24px;
   line-height: 1;
+
 }
 .title {
   flex: 1;
   margin-left: 8px;
   text-align: left;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /* form */
@@ -59,7 +124,7 @@ a, a:visited {
   font-size: 14px;
 }
 .required {
-  color: #e74c3c;
+  color: #FF9500;
   margin-left: 2px;
   font-size: 14px;
 }
@@ -75,6 +140,11 @@ a, a:visited {
   border-radius: 4px;
   font-size: 14px;
 }
+
+.form label {
+  font-weight: 700; 
+}
+
 .inline-group {
   display: flex;
   gap: 8px;
@@ -99,8 +169,11 @@ a, a:visited {
 }
 
 .address-search .search-btn {
-  padding: 10px 12px;     
+  padding: 7px 12px;     
   font-size: 14px;
+  display: inline-flex;        /* 버튼을 flex 컨테이너로 */
+  align-items: center;         /* 수직 중앙 정렬 */
+  justify-content: center;     /* 수평 중앙 정렬 (기존에도 작동) */
   line-height: 1.2;
   box-sizing: border-box;
   background: #00adad;
@@ -117,7 +190,10 @@ a, a:visited {
 }
 
 .image-upload {
-  border: 1px solid #ccc;     
+  border: 1px solid #ccc;    
+  display: flex;
+  align-items: center;
+  gap: 8px;
   border-radius: 4px;
   padding: 20px;
   min-height: 100px;         
@@ -127,12 +203,17 @@ a, a:visited {
   transition: border-color .2s, background .2s;
 }
 
+.image-upload img {
+  order: -1;
+  margin-right: 24px;   /* 텍스트와 아이콘 사이를 12px 만큼 벌림 */
+}
+
 .image-upload span {
   color: #999;  
 }
 
 .image-upload.dragover {
-  border-color: #00bfa5;
+  border-color: #00adad;
   background: rgba(0, 191, 165, 0.1);
 }
 
@@ -161,6 +242,7 @@ a, a:visited {
   border: none;
   border-radius: 4px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -174,6 +256,7 @@ a, a:visited {
   flex: 1;
   padding: 12px 0;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 4px;
   border: none;
 }
@@ -190,3 +273,12 @@ a, a:visited {
   resize: none;
 }
 
+#details {
+  height: 400px; 
+  resize: none;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}

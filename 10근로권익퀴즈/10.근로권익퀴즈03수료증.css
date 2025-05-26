@@ -1,36 +1,31 @@
 body {
   font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
 }
 
 html, body {
   overflow-x: hidden;
 }
 
-body {
-  font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #333;
-}
-
 .wrapper {
-  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
+  padding-bottom: 100px; 
   width: 100%;
   max-width: 412px;
   min-height: 100vh;
-  border: 1px solid #ccc;
   background-color: #fff;
   position: relative;
   margin: 0 auto;
 }
 
-/* 헤더 */
+
 .header {
   display: flex;
   align-items: center;
   padding: 15px 20px;
   background-color: #fff;
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid #ddd;
   font-weight: 700;
 }
 
@@ -129,7 +124,7 @@ body {
   margin-top: 20px;
   width: 362px;
   height: 45px; 
-  justify-content: center;   /* 👉 가운데 정렬 핵심 */
+  justify-content: center;   
   align-items: center;
         
 }
@@ -139,7 +134,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px; /* 아이콘과 텍스트 사이 간격 */
+  gap: 6px; 
   padding: 12px;
    width: 140px;
   height: 48px;
@@ -176,17 +171,21 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 8px 0;
-  border-top: 1px solid #ccc;
-  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+  z-index: 1000;
 }
 
-.footer-item {
+.footer-item,
+.footer-item:visited {
+  text-decoration: none;
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 10px;
-  text-decoration: none;
-  color: #000;
+  font-weight: bold;
+  transition: transform 0.2s ease;
 }
 
 .footer-item img {
@@ -195,9 +194,10 @@ body {
   margin-bottom: 4px;
 }
 
- 
- 
-/* ✅ 모달 스타일 */
+.footer-item:hover img {
+  transform: scale(1.1);
+}
+
     .modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -249,7 +249,7 @@ body {
       color: white;
     }
 
-    /* ✅ 토스트 메시지 */
+    
     .toast {
       position: fixed;
       bottom: 100px;
@@ -270,75 +270,83 @@ body {
       opacity: 1;
     }
 
-    /* 폰트 */
-/* Paperlogy 폰트: Thin (아주 얇은 글씨)
-   - 주로 부가 설명, 날짜, 캡션 등에 사용 */
+.certificate-card {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  animation: fadeInCard 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  transition: box-shadow 0.3s ease;
+}
+
+
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.medal {
+  animation: pulseMedal 2s infinite ease-in-out;
+}
+
+@keyframes pulseMedal {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05) rotate(-2deg); }
+}
+
+/* 폰트 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-1Thin.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-1Thin.ttf') format('truetype');
   font-weight: 100;
 }
 
-/* Paperlogy 폰트: ExtraLight (매우 가는 글씨)
-   - 얇은 강조가 필요한 경우 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-2ExtraLight.ttf') format('truetype');
   font-weight: 200;
 }
 
-/* Paperlogy 폰트: Light (가는 글씨)
-   - 부드러운 본문용, 서브텍스트 등 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-3Light.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-3Light.ttf') format('truetype');
   font-weight: 300;
 }
 
-/* Paperlogy 폰트: Regular (기본 굵기)
-   - 기본 본문, 일반적인 텍스트에 사용 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-4Regular.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-4Regular.ttf') format('truetype');
   font-weight: 400;
 }
 
-/* Paperlogy 폰트: Medium (약간 굵은 기본)
-   - 일반 본문보다 살짝 강조가 필요한 경우 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-5Medium.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-5Medium.ttf') format('truetype');
   font-weight: 500;
 }
 
-/* Paperlogy 폰트: SemiBold (조금 굵은 글씨)
-   - 버튼, 강조 문구에 적합 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-6SemiBold.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-6SemiBold.ttf') format('truetype');
   font-weight: 600;
 }
 
-/* Paperlogy 폰트: Bold (굵은 글씨)
-   - 제목, 카드 타이틀, 버튼 강조에 사용 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-7Bold.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-7Bold.ttf') format('truetype');
   font-weight: 700;
 }
 
-/* Paperlogy 폰트: ExtraBold (매우 굵은 글씨)
-   - 강한 강조가 필요한 제목, 포스터 등에 사용 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-8ExtraBold.ttf') format('truetype');
   font-weight: 800;
 }
 
-/* Paperlogy 폰트: Black (가장 굵은 글씨)
-   - 헤드라인, 포인트 타이틀, 시각적 중심에 사용 */
 @font-face {
   font-family: 'Paperlogy';
-  src: url('./fonts/Paperlogy-9Black.ttf') format('truetype');
+  src: url('../공통/font/Paperlogy-9Black.ttf') format('truetype');
   font-weight: 900;
 }
