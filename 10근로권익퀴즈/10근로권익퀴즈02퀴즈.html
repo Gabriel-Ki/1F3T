@@ -9,7 +9,7 @@
 <body>
   <div class="wrapper">
     <header class="header">
-      <button class="icon-btn" onclick="history.back()">←</button>
+      <button class="icon-btn" onclick="history.back()"><img src="../공통/img/lucide_arrow-left.png" alt="뒤로가기"></button>
       <div class="header-title">근로권익 퀴즈</div>
     </header>
 
@@ -17,6 +17,10 @@
       <div id="question-number">1/5</div>
       <div id="question-text">질문이 여기에 표시됩니다.</div>
       <div id="choices"></div>
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="prevQuestion()">이전</button>
+        <button class="nav-btn" onclick="nextQuestion()">다음</button>
+      </div>
     </div>
 
     <div id="result-container" style="display: none;">
@@ -27,11 +31,7 @@
         </div>
       </div>
       <div class="text1" id="result-title">축하해요!</div>
-      <div class="text2" id="result-desc">
-        퀴즈 통과로 근로권익을 잘 이해하게 되었어요.<br />
-        이제 안전하고 공정한 일자리에 자신 있게 도전해 보세요!
-      </div>
-
+      <div class="text2" id="result-desc"></div>
       <div class="action-buttons" id="action-buttons"></div>
     </div>
   </div>
@@ -84,6 +84,7 @@
 
     let currentQuestion = 0;
     let score = 0;
+    let userAnswers = Array(quizData.length).fill(null);
 
     const questionEl = document.getElementById('question-text');
     const choicesEl = document.getElementById('choices');
@@ -106,16 +107,40 @@
         const btn = document.createElement('button');
         btn.textContent = choice;
         btn.className = 'choice-btn';
+        if (userAnswers[currentQuestion] === choice) {
+          btn.classList.add('selected');
+        }
         btn.onclick = () => {
-          if (choice === current.answer) score++;
-          currentQuestion++;
-          currentQuestion < quizData.length ? loadQuestion() : showResult();
+          userAnswers[currentQuestion] = choice;
+          Array.from(choicesEl.children).forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
         };
         choicesEl.appendChild(btn);
       });
     }
 
+    function nextQuestion() {
+      if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+      }
+    }
+
     function showResult() {
+      score = 0;
+      userAnswers.forEach((answer, i) => {
+        if (answer === quizData[i].answer) score++;
+      });
+
       const percent = Math.round((score / quizData.length) * 100);
       finalScoreEl.textContent = percent;
       quizContainer.style.display = 'none';
@@ -125,7 +150,6 @@
       if (percent >= 60) {
         resultTitle.textContent = '축하해요!';
         resultDesc.innerHTML = `퀴즈 통과로 근로권익을 잘 이해하게 되었어요.<br />이제 안전하고 공정한 일자리에 자신 있게 도전해 보세요!`;
-
         actionButtons.innerHTML = `
           <button class="action-btn" onclick="window.location.href='10.근로권익퀴즈03수료증.html'">수료증 발급</button>
           <button class="action-btn" onclick="alertAndRedirect()">채용공고 보러가기</button>
@@ -133,7 +157,6 @@
       } else {
         resultTitle.textContent = '아쉬워요!';
         resultDesc.innerHTML = `조금 더 공부하면 근로권익을 잘 알 수 있어요.<br />다시 도전해서 꼭 합격해 보세요!`;
-
         actionButtons.innerHTML = `
           <button class="action-btn" onclick="openContentModal()">근로콘텐츠 보러가기</button>
           <button class="action-btn" onclick="location.reload()">퀴즈 다시 풀기</button>
