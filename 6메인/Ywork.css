@@ -257,7 +257,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   font-size: 10px;
-  font-weight: bold;
+  font-weight: 700;
   transition: transform 0.2s ease;
 }
 
@@ -399,4 +399,3 @@ html, body {
   margin: 4px 0;
   font-size: 14px;
 }
-
