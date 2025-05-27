@@ -180,6 +180,8 @@ body {
 .btn-auth {
     height: 48px;
     width: 380px;
+    font-weight: 700;
+    font-size: 18px;
     margin-top: 12px;
     padding: 0 16px;
     display: flex;
@@ -260,6 +262,7 @@ body {
 #addressInput { width : 293px; }
 #searchAddressBtn {
     padding: 0 16px;
+    font-weight: 700;
     height: 48px;
     background: var(--primary);
     color: #fff;
@@ -282,7 +285,7 @@ body {
 .file-upload { display: flex; flex-direction: column; }
 .file-upload-area {
     padding: 40px 20px;
-    border: 2px dashed var(--border);
+    border: 2px solid var(--border);
     border-radius: 8px;
     background: #fafafa;
     text-align: center;
@@ -307,6 +310,7 @@ body {
 .btn-file {
     padding: 8px 16px;
     background: var(--primary);
+    font-weight: 700;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -359,7 +363,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    white-space: pre-line;
 }
 
 /* Submit Button */
