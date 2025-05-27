@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
-  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-family: 'Paperlogy', sans-serif;
+  color: #3f3f3f;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   width: 375px;
   margin: 0 auto;
   padding: 20px;
+  font-weight: 500; /* 일반 텍스트 */
 }
 
 .signup-header {
@@ -20,6 +22,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
+  font-weight: 700; /* 제목/헤드 */
 }
 
 .back-btn {
@@ -27,6 +30,8 @@ body {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  font-weight: 700;
+  color: #00adad;
 }
 
 .signup-form {
@@ -38,6 +43,7 @@ body {
 .input-group {
   display: flex;
   gap: 8px;
+  font-weight: 500;
 }
 
 .input-group.phone-number {
@@ -52,20 +58,23 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .dash {
   font-size: 16px;
-  color: #999;
+  color: #c4c4c4; /* 보조글씨 색 */
+  font-weight: 300;
 }
 
 .btn {
-  background-color: #00c4c4;
+  background-color: #00adad; /* 기본색 */
   color: white;
   border: none;
   border-radius: 8px;
   padding: 12px;
   font-size: 14px;
+  font-weight: 700; /* 버튼은 7Bold */
   cursor: pointer;
 }
 
@@ -83,12 +92,14 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .file-upload {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-weight: 500;
 }
 
 .upload-box {
@@ -97,6 +108,7 @@ body {
   text-align: center;
   font-size: 13px;
   color: #666;
+  font-weight: 300; /* 보조 */
   border-radius: 8px;
 }
 
@@ -105,6 +117,7 @@ body {
   border-radius: 8px;
   padding: 12px;
   font-size: 13px;
+  font-weight: 300; /* 보조 */
 }
 
 .terms-box ul {
