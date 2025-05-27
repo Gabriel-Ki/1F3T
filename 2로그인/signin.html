@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>개인회원로그인</title>
-  <link rel="stylesheet" href="./signin.css" />
+  <link rel="stylesheet" href="signin.css" />
 </head>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-
 <body>
   <div class="login-wrapper">
     <header class="top-bar">
@@ -20,42 +16,169 @@
     </header>
 
     <div class="logo-container">
-      <img src="./img/로고2.png" alt="Y:WORK 로고" class="logo" />
+      <img src="./img/yworkimg.png" alt="Y:WORK 로고" class="logo" />
     </div>
 
     <div class="tab-container">
-      <button class="tab active">개인회원</button>
-      <button class="tab">기업회원</button>
+      <button class="tab active" id="user-tab">개인회원</button>
+      <button class="tab" id="company-tab">기업회원</button>
     </div>
 
     <div class="input-group">
       <div class="input-icon">
         <img src="./img/eva_person-outline.png" alt="user">
-        <input type="text" placeholder="아이디" />
+        <input type="text" placeholder="아이디" id="input-id" />
       </div>
       <div class="input-icon">
         <img src="./img/eva_lock-outline.png" alt="lock">
-        <input type="password" placeholder="비밀번호" />
+        <input type="password" placeholder="비밀번호" id="password" />
+        <span class="toggle-password" onclick="togglePassword()">보기</span>
       </div>
     </div>
 
     <button class="login-btn">로그인</button>
-    <!-- 간편로그인 영역 -->
-    <div class="social-login">
-      <img src="./img/naver_logo.png" alt="네이버 로그인" title="네이버 로그인">
-      <img src="./img/Facebook.png" alt="페이스북 로그인" title="페이스북 로그인">
-      <img src="./img/kakaotalk.png" alt="카카오톡 로그인" title="카카오톡 로그인">
-      <img src="./img/Google.png" alt="구글 로그인" title="구글 로그인">
+
+    <div class="sns-row" id="sns-row">
+      <img src="../공통/img/naver.png" alt="네이버">
+      <img src="../공통/img/kakao.png" alt="카카오톡">
+      <img src="../공통/img/facebook.png" alt="페이스북">
+      <img src="../공통/img/google.png" alt="구글">
     </div>
 
     <div class="link-group">
-      <a href="#">아이디 찾기</a>
+      <a href="#" onclick="showModal('아이디 찾기')">아이디 찾기</a>
       <span>|</span>
-      <a href="#">비밀번호 찾기</a>
+      <a href="#" onclick="showModal('비밀번호 찾기')">비밀번호 찾기</a>
       <span>|</span>
-      <a href="../3회원가입/">회원가입</a>
+      <a href="../3회원가입/회원가입.html">회원가입</a>
     </div>
   </div>
-</body>
 
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <h3 id="modal-title">아이디 찾기</h3>
+      <div id="modal-fields"></div>
+      <div class="modal-buttons">
+        <button class="modal-btn confirm" onclick="closeModal()">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="login-success-modal" class="modal">
+    <div class="modal-box">
+      <p class="modal-message">로그인에 성공했습니다.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn confirm" onclick="goToMain()">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="login-fail-modal" class="modal">
+    <div class="modal-box">
+      <p class="modal-message">아이디 또는 비밀번호가 <br>올바르지 않습니다.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn confirm" onclick="closeFailModal()">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-row">
+    <input type="text" class="auth-input" placeholder="인증번호 입력" />
+    <div class="btn-wrapper">
+      <button class="confirm-btn">확인</button>
+    </div>
+  </div>
+
+
+  <script>
+    const userTab = document.getElementById('user-tab');
+    const companyTab = document.getElementById('company-tab');
+    const snsRow = document.getElementById('sns-row');
+
+    userTab.addEventListener('click', () => {
+      userTab.classList.add('active');
+      companyTab.classList.remove('active');
+      snsRow.classList.remove('hidden');
+    });
+
+    companyTab.addEventListener('click', () => {
+      companyTab.classList.add('active');
+      userTab.classList.remove('active');
+      snsRow.classList.add('hidden');
+    });
+
+    function togglePassword() {
+      const pwInput = document.getElementById('password');
+      const toggle = document.querySelector('.toggle-password');
+      if (pwInput.type === 'password') {
+        pwInput.type = 'text';
+        toggle.textContent = '숨기기';
+      } else {
+        pwInput.type = 'password';
+        toggle.textContent = '보기';
+      }
+    }
+
+    function showModal(title) {
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalFields = document.getElementById('modal-fields');
+
+      modalTitle.textContent = title;
+      modalFields.innerHTML = '';
+
+      modalFields.innerHTML += `
+        <label class="label">이름</label>
+        <input type="text" class="modal-input" placeholder="이름 입력" />
+      `;
+
+      if (title === '비밀번호 찾기') {
+        modalFields.innerHTML += `
+          <label class="label">아이디</label>
+          <input type="text" class="modal-input" placeholder="아이디 입력" />
+        `;
+      }
+
+      modalFields.innerHTML += `
+        <label class="label">휴대폰</label>
+        <div class="phone-inline">
+          <input type="text" maxlength="3" class="phone-input" />
+          <input type="text" maxlength="4" class="phone-input" />
+          <input type="text" maxlength="4" class="phone-input" />
+          <button class="phone-btn">인증번호</button>
+        </div>
+        <div class="auth-row">
+          <input type="text" class="modal-input" placeholder="인증번호 입력" />
+          <button class="confirm-btn">확인</button>
+        </div>
+      `;
+
+      modal.classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('show');
+    }
+
+    function goToMain() {
+      window.location.href = '../6메인/Ywork.html';
+    }
+
+    function closeFailModal() {
+      document.getElementById('login-fail-modal').classList.remove('show');
+    }
+
+    document.querySelector('.login-btn').addEventListener('click', function () {
+      const id = document.getElementById('input-id').value;
+      const pw = document.getElementById('password').value;
+
+      if (id === '1234' && pw === '1234') {
+        document.getElementById('login-success-modal').classList.add('show');
+      } else {
+        document.getElementById('login-fail-modal').classList.add('show');
+      }
+    });
+  </script>
+</body>
 </html>
+
