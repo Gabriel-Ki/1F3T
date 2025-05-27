@@ -79,29 +79,18 @@
     </form>
   </div>
 
-<!-- 
-    더 넣어야할 것
-    이미지 드래그 앤 드랍
-    진짜 등록하기 구현(DB?)
-    도로명 주소?
-    폰트     
--->
-
   <script>
   const uploadInput = document.getElementById('upload');
   const uploadArea  = document.querySelector('.upload-area');
   const fileBtn     = document.querySelector('.file-btn');
 
-  // 버튼 클릭 시 파일 선택창 열기
   fileBtn.addEventListener('click', () => uploadInput.click());
 
-  // 인풋에서 파일 선택 완료
   uploadInput.addEventListener('change', (e) => {
     if (!e.target.files.length) return;
     handleFile(e.target.files[0]);
   });
 
-  // 드래그 오버
   uploadArea.addEventListener('dragover', (e) => {
     e.preventDefault();
     uploadArea.classList.add('dragover');
@@ -110,13 +99,11 @@
     uploadArea.classList.remove('dragover');
   });
 
-  // 드롭
   uploadArea.addEventListener('drop', (e) => {
     e.preventDefault();
     uploadArea.classList.remove('dragover');
     const files = e.dataTransfer.files;
     if (files.length && /\.(jpe?g|png)$/i.test(files[0].name) && files[0].size <= 1024*1024) {
-      // 파일을 input 에도 등록해두면 폼 전송 시 업로드됩니다.
       uploadInput.files = files;
       handleFile(files[0]);
     } else {
@@ -125,7 +112,6 @@
   });
   const numInput = document.getElementById('number');
   numInput.addEventListener('input', () => {
-    // 문자열 길이가 3을 넘으면 앞 세 글자만 남김
     if (numInput.value.length > 3) {
       numInput.value = numInput.value.slice(0, 3);
     }

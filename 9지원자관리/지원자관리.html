@@ -78,24 +78,20 @@
   </div>
 
 <script>
-  // 채용종료 버튼: 확인 후 알림, 그리고 페이지 이동
   document.getElementById('finishBtn').addEventListener('click', function() {
     if (confirm('채용을 종료하시겠습니까?')) {
       alert('채용이 종료되었습니다.');
-      // 종료 후 이동할 페이지 경로 지정
       window.location.href = '../7공고관리/채용공고관리마감.html';
     } else {
       alert('취소되었습니다.');
     }
   });
 
-  // 개별 합/불합격 버튼 처리
   document.querySelectorAll('.card').forEach(function(card) {
     const name = card.querySelector('.name').textContent;
     card.querySelector('.btn.accept').addEventListener('click', function() {
       if (confirm(`${name} 님을 합격 처리하시겠습니까?`)) {
         alert(`${name} 님이 합격 처리되었습니다.`);
-        // 실제 합격 처리 로직 추가 가능
       } else {
         alert('취소되었습니다.');
       }
@@ -103,14 +99,12 @@
     card.querySelector('.btn.reject').addEventListener('click', function() {
       if (confirm(`${name} 님을 불합격 처리하시겠습니까?`)) {
         alert(`${name} 님이 불합격 처리되었습니다.`);
-        // 실제 불합격 처리 로직 추가 가능
       } else {
         alert('취소되었습니다.');
       }
     });
   });
 
-  // 지원자 수 자동 업데이트
   document.addEventListener('DOMContentLoaded', function() {
     const cardCount = document.querySelectorAll('.card').length;
     document.querySelector('.count').textContent = `전체 ${cardCount}건`;
