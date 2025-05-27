@@ -1,0 +1,414 @@
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-1Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-2ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-3Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-4Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-5Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-6SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-7Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-8ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('../공통/font/Paperlogy-9Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Paperlogy', sans-serif;
+    color: #3f3f3f;
+}
+
+/* Variables */
+:root {
+    --primary: #00adad;
+    --bg: #f5f5f5;
+    --card-bg: #fff;
+    --border: #ddd;
+    --text: #333;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Utility Classes */
+.hidden { display: none !important; }
+.mt-12 { margin-top: 12px; }
+.align-center { display: flex; align-items: center; }
+
+/* Wrapper & Header */
+.wrapper {
+    max-width: 412px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    position: relative;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 412px;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 10;
+}
+.back-btn {
+    font-size: 24px;
+    line-height: 1;
+}
+.title {
+    flex: 1;
+    margin-left: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Card */
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 16px;
+}
+
+/* Auth Section */
+.auth-toggle {
+    display: flex;
+    margin-bottom: 12px;
+}
+.auth-option {
+    flex: 1;
+    height: 50px;
+    cursor: pointer;
+}
+.auth-option + .auth-option { margin-left: 8px; }
+.auth-option input { display: none; }
+.auth-option span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 8px 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.auth-option input:checked + span {
+    background: var(--primary);
+    color: #fff;
+}
+
+.auth-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.auth-input input {
+  width: 244px; 
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.auth-input select {
+    flex: 1;
+    height: 48px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+#telselect {
+    flex: 0 0 80px;
+    margin-right: 10px;
+}
+.btn-auth {
+    height: 48px;
+    width: 380px;
+    margin-top: 12px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Form Elements */
+.form-card .form-group { margin-bottom: 16px; }
+.form-card label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.required { color: #ff9500; margin-left: 4px; }
+.form-card input[type="text"],
+.form-card input[type="password"],
+.form-card input[type="email"],
+.form-card select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+/* Email Inline */
+.form-group.align-center .email-fields .form-input {
+  flex: 0 0 100px;    /* 늘어나지 않고 100px 고정 */
+  height: 40px;       /* 높이도 지정 가능 */
+}
+
+.form-group.align-center .email-fields .dropdown {
+  flex: 0 0 120px;    /* 늘어나지 않고 120px 고정 */
+  height: 40px;
+}
+
+/* 필요하다면 placeholder 텍스트가 가운데 오도록 */
+.form-group.align-center .email-fields .form-input,
+.form-group.align-center .email-fields .dropdown {
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+/* 이메일 필드 크기 고정 (다른 .form-input 은 영향 없음) */
+#emailId {
+  width: 100px;      /* 아이디 입력창 너비 */
+  height: 40px;      /* 높이 통일 */
+  padding: 24px;
+}
+
+#emailDomain {
+  width: 80px;       /* 도메인 입력창 너비 */
+  height: 40px;
+  padding: 24px;
+}
+
+#domainSelect {
+  width: 120px;      /* 셀렉트 박스 너비 */
+  height: 40px;
+  padding: 24px;  
+}
+
+
+/* Address Search */
+.address-group {
+    width: 80px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+#addressInput { width : 293px; }
+#searchAddressBtn {
+    padding: 0 16px;
+    height: 48px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Certificate Number */
+.cert-number {
+    display: flex;
+    gap: 4px;
+}
+.cert-number input {
+    flex: 1;
+    text-align: center;
+}
+
+/* File Upload */
+.file-upload { display: flex; flex-direction: column; }
+.file-upload-area {
+    padding: 40px 20px;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+.file-upload-area:hover { border-color: var(--primary); }
+.file-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+.file-footer .file-name {
+    font-size: 14px;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+}
+.btn-file {
+    padding: 8px 16px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.file-info {
+    font-size: 12px;
+    color: #666;
+    margin: 8px 0 12px;
+}
+
+/* Agreements */
+.agree-all {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 20px;
+}
+.agree-all input { margin-right: 8px; }
+.agreements ul {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    padding: 24px;
+    list-style: none;
+    margin-top: 10px;
+}
+.agreements li { margin-bottom: 8px; }
+
+/* i-PIN Section */
+.auth-content[data-auth="ipin"] {
+    width: 380px;
+    min-height: 100px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth-content[data-auth="ipin"] p { margin-bottom: 16px; }
+.auth-content[data-auth="ipin"] .btn-auth {
+    width: 200px;
+    height: 60px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: pre-line;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 이메일 그룹을 flex-wrap 컨테이너로 변경 */
+.form-group.align-center {
+  display: flex;
+  flex-wrap: wrap;       /* 자식 요소들이 줄 바꿈 가능하도록 */
+  align-items: center;
+  gap: 8px;              /* 요소 간격 */
+}
+
+/* 레이블을 항상 전체 너비로 띄워서 첫 줄에만 배치 */
+.form-group.align-center > label {
+  flex-basis: 100%;      /* 전체 행 너비 차지 */
+  margin-bottom: 0;      /* 불필요한 아래 여백 제거 */
+}
+
+/* 아이디 입력창 고정 크기 */
+#emailId {
+  flex: 0 0 100px;       /* 늘어나지 않고 100px 고정 */
+  height: 40px;          /* 높이 통일 */
+}
+
+/* 도메인 입력창 고정 크기 */
+#emailDomain {
+  flex: 0 0 80px;        /* 늘어나지 않고 80px 고정 */
+  height: 40px;
+}
+
+/* 셀렉트 박스 고정 크기 */
+#domainSelect {
+  flex: 0 0 120px;       /* 늘어나지 않고 120px 고정 */
+  height: 40px;
+}
+
+/* @ 구분자도 수직 중앙에 맞추기 */
+.email-separator {
+  display: flex;
+  align-items: center;
+}
