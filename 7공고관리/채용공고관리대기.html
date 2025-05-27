@@ -49,8 +49,8 @@
           <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
         </div>
         <div class="card-actions">
-            <a href="/posts/123/edit"       class="action-btn">수정</a>
-            <a href="/posts/123/draft"      class="action-btn">삭제</a>
+          <a href="/posts/123/edit"       class="action-btn">수정</a>
+          <button type="button" class="action-btn delete-btn">삭제</button>        
         </div>
       </div>
       <div class="card">
@@ -61,8 +61,8 @@
           <div class="item-row"><strong>모집인원</strong><p>00명</p></div>
         </div>
             <div class="card-actions">
-                <a href="/posts/123/edit"       class="action-btn">수정</a>
-                <a href="/posts/123/draft"      class="action-btn">삭제</a>
+              <a href="/posts/123/edit"       class="action-btn">수정</a>
+              <button type="button" class="action-btn delete-btn">삭제</button>        
             </div>
         </div>
     </section>
@@ -111,6 +111,21 @@
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const confirmed = confirm('삭제하시겠습니까?');
+      if (confirmed) {
+        // TODO: 실제 삭제 요청 (예: fetch('/posts/'+btn.dataset.id, { method: 'DELETE' }))
+        alert('삭제되었습니다');
+        // 화면에서 카드 제거하려면 아래 주석 해제
+        // btn.closest('.card').remove();
+      } else {
+        alert('취소되었습니다');
+      }
+    });
+  });
+});
 
 </script>
 

@@ -30,7 +30,7 @@
                     <div class="form-label">
                         이력서 사진 등록<span class="required">*</span>
                     </div>
-                    <div class="file-upload-area" onclick="document.getElementById('photoUpload').click()">
+                    <div class="file-upload-area" id="photoDropArea">
                         <img src="./img/material-symbols-light_upload.png" alt="upload icon">
                         <div class="upload-text">
                             이곳에 이미지를 업로드하거나,<br />
@@ -43,91 +43,136 @@
                         이미지 파일은 JPG, PNG 파일만 등록 가능합니다.<br />
                         최대 1MB까지 등록 가능합니다.
                     </div>
+                    <button type="button" class="btn btn-primary mt-12" id="photoUploadBtn">파일 찾기</button>
+                    <div id="photoFileName" class="file-name-preview"></div>
+                    <div id="toast" class="toast"></div>
                 </div>
 
                 <!-- 개인정보 -->
                 <div class="form-section">
-                    <div class="form-label">
-                        개인정보<span class="required">*</span>
-                    </div>
-                    <div class="form-group mb-12">
-                        <div class="dropdown-wrapper">
-                            <select class="form-input dropdown">
-                                <option>성별</option>
-                                <option>남성</option>
-                                <option>여성</option>
-                            </select>
-                        </div>
-                        <div class="dropdown-wrapper">
-                            <input type="number" class="form-input" placeholder="나이 ex) 17">
-                        </div>
-                    </div>
-                    <input type="tel" class="form-input mb-12" placeholder="연락처 ex) 010-0000-0000" />
-                    <div class="form-group">
-                        <input type="email" class="form-input" placeholder="" />
-                        <div class="dropdown-wrapper">
-                            <select class="form-input dropdown">
-                                <option>@naver.com</option>
-                                <option>@gmail.com</option>
-                                <option>@daum.net</option>
-                                <option>@hotmail.com</option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="text" class="form-input mt-12" placeholder="주소" />
-                    <div class="dropdown-wrapper mt-12">
+                    <div class="form-label">개인정보<span class="required">*</span></div>
+
+                    <!-- 성별 -->
+                    <div class="form-group align-center">
+                        <label class="form-label-inline">성별</label>
                         <select class="form-input dropdown">
-                            <option>학력</option>
-                            <option>고등학교 졸업</option>
-                            <option>대학교 재학</option>
-                            <option>대학교 졸업</option>
-                            <option>대학원 이상</option>
+                            <option>선택</option>
+                            <option>남성</option>
+                            <option>여성</option>
                         </select>
                     </div>
+
+                    <!-- 나이 -->
+                    <div class="form-group align-center">
+                        <label class="form-label-inline">나이</label>
+                        <input type="number" class="form-input" placeholder="ex) 17" />
+                    </div>
+
+                    <!-- 연락처 -->
+                    <div class="form-group align-center">
+                        <label class="form-label-inline">연락처</label>
+                        <input type="tel" class="form-input" placeholder="010-0000-0000" />
+                    </div>
+
+                    <!-- 이메일 -->
+                    <div class="form-group align-center">
+                        <label class="form-label-inline1">이메일</label>
+                        <input type="text" class="form-input" id="emailId" placeholder=" 아이디" style="flex: 1;" />
+                        <span class="email-separator">@</span>
+                        <input type="text" class="form-input" id="emailDomain" placeholder=" 도메인" style="flex: 1;" />
+                        <select class="form-input dropdown" id="domainSelect" style="flex: 1;">
+                            <option value="">선택</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="daum.net">daum.net</option>
+                            <option value="custom">직접입력</option>
+                        </select>
+                    </div>
+
+                    <!-- 주소 -->
+                    <input type="text" class="form-input mt-12" placeholder="주소" />
                 </div>
 
                 <!-- 희망근무지 -->
                 <div class="form-section">
-                    <div class="form-label">희망근무지<span class="required">*</span></div>
-                    <select id="regionSelector" class="form-input dropdown">
-                        <option value="">구성을 선택하세요</option>
-                        <option>서울특별시</option>
-                        <option>경기도</option>
-                        <option>인천광역시</option>
-                        <option>강원특별자치도</option>
-                        <option>대전광역시</option>
-                        <option>세종특별자치시</option>
-                        <option>출천남도</option>
-                        <option>출천북도</option>
-                        <option>부산광역시</option>
-                        <option>울산광역시</option>
-                        <option>경상남도</option>
-                        <option>경상북도</option>
-                        <option>대구광역시</option>
-                        <option>광주광역시</option>
-                        <option>전라남도</option>
-                        <option>전북특별자치도</option>
-                        <option>제주특별자치도</option>
-                        <option>전국</option>
+                    <div class="form-label">
+                        희망근무지<span class="required">*</span>
+                        <span class="form-info">최대 6개 까지 선택 가능</span>
+                    </div>
+
+                    <!-- 시/도 -->
+                    <select id="sidoSelector" class="form-input dropdown">
+                        <option value="">시/도 선택</option>
+                        <option value="서울특별시">서울특별시</option>
+                        <option value="경기도">경기도</option>
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="강원특별자치도">강원특별자치도</option>
+                        <option value="대전광역시">대전광역시</option>
+                        <option value="세종특별자치시">세종특별자치시</option>
+                        <option value="충청남도">충청남도</option>
+                        <option value="충청북도">충청북도</option>
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="울산광역시">울산광역시</option>
+                        <option value="경상남도">경상남도</option>
+                        <option value="경상북도">경상북도</option>
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="전라남도">전라남도</option>
+                        <option value="전북특별자치도">전북특별자치도</option>
+                        <option value="제주특별자치도">제주특별자치도</option>
+                        <option value="전국">전국</option>
                     </select>
-                    <div id="selectedRegions" class="form-group mt-12"></div>
+
+                    <!-- 구/군 -->
+                    <select id="sigugunSelector" class="form-input dropdown mt-12" disabled>
+                        <option value="">시/구/군 선택</option>
+                    </select>
+
+                    <!-- 동 -->
+                    <select id="dongSelector" class="form-input dropdown mt-12" disabled>
+                        <option value="">동 선택</option>
+                    </select>
+
+                    <!-- 선택된 동 목록 -->
+                    <div id="selectedDongs" class="form-group mt-12" style="flex-wrap: wrap; gap: 6px;"></div>
                 </div>
 
                 <!-- 희망직종 -->
                 <div class="form-section">
-                    <div class="form-label">희망직종<span class="required">*</span></div>
-                    <textarea class="form-input textarea" placeholder="희망 직종을 선택해주세요."></textarea>
-                    <div class="character-count"><span class="character-limit">0</span>/10</div>
-                    <button type="button" class="btn btn-secondary">선택하기</button>
+                    <div class="form-label">
+                        희망직종<span class="required">*</span>
+                        <span class="form-info">최대 4개 까지 선택 가능</span>
+                    </div>
+                    <!-- 희망직종 선택 버튼들 -->
+                    <select id="jobSelectContainer" class="form-input dropdown" style="flex-wrap: wrap; gap: 8px;">
+                        <option value="">직종선택</option>
+                        <option value="서빙">서빙</option>
+                        <option value="배달">배달</option>
+                        <option value="포장">포장</option>
+                        <option value="청소">청소</option>
+                        <option value="카운터">카운터</option>
+                        <option value="주방보조">주방보조</option>
+                        <option value="조리">조리</option>
+                        <option value="판매">판매</option>
+                        <option value="매장관리">매장관리</option>
+                        <option value="기타">기타</option>
+                    </select>
+
+                    <!-- 선택된 직종 박스 -->
+                    <div id="selectedJobs" class="form-group mt-12" style="flex-wrap: wrap; gap: 8px;"></div>
+
+                    <div class="character-count"><span class="character-limit">0</span>/4</div>
                 </div>
 
                 <!-- 자기소개서 -->
                 <div class="form-section">
                     <div class="form-label">자기소개서<span class="required">*</span></div>
-                    <textarea class="form-input textarea" placeholder=
-                        style="min-height: 120px;"></textarea>
-                    <button type="button" class="btn btn-secondary">자기소개서 직접 작성하기</button>
-                    <div class="file-upload-area mt-12" onclick="document.getElementById('resumeUpload').click()">
+                    <textarea class="form-input textarea" class="textarea" rows="4" maxlength="300"
+                        placeholder="자기소개서 작성 또는 파일을 업로드 해주세요.    (300자 이내)"></textarea>
+                    <div class="character-count">
+                        <span class="character-limit">0</span>/300
+                    </div>
+                    <div class="file-upload-area mt-12" id="resumeDropArea">
                         <img src="./img/material-symbols-light_upload.png" alt="upload icon">
                         <div class="upload-text">
                             이곳에 파일을 업로드하거나,<br />
@@ -137,7 +182,9 @@
                     </div>
                     <input type="file" id="resumeUpload" class="hidden" accept=".doc,.docx,.pdf" />
                     <div class="file-info">파일은 포맷 5MB까지 등록할 수 있습니다.</div>
-                    <button type="button" class="btn btn-primary mt-12">파일 찾기</button>
+                    <button type="button" class="btn btn-primary mt-12" id="resumeUploadBtn">파일 찾기</button>
+                    <div id="resumeFileName" class="file-name-preview"></div>
+                    <div id="toast" class="toast"></div>
                 </div>
             </form>
         </div>
@@ -148,7 +195,7 @@
         </div>
     </div>
 
-    <script src="register.js"></script>
+    <script type="module" src="register.js"></script>
 </body>
 
 </html>

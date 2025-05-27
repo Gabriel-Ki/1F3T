@@ -1,340 +1,325 @@
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-1Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-1Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-2ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-2ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-3Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-3Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-4Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-4Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-5Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-5Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-6SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-6SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-7Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-7Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-8ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-8ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Paperlogy';
-  src: url('./font/Paperlogy-9Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
+    font-family: 'Paperlogy';
+    src: url('./font/Paperlogy-9Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 body {
-  font-family: 'Paperlogy', sans-serif;
-  font-weight: 400; /* 기본 가중치 */
-  background: #fff;
-  color: #333;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 400; /* 기본 가중치 */
+    background: #fff;
+    color: #333;
 }
 
 html, body {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .wrapper {
-  padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
-  width: 100%;
-  max-width: 412px;
-  min-height: 100vh;
-  border: none;
-  background-color: #fff;
-  position: relative;
-  margin: 0 auto;
+    padding-bottom: 100px; /* footer 높이(60px)보다 여유 있게 */
+    width: 100%;
+    max-width: 412px;
+    min-height: 100vh;
+    border: none;
+    background-color: #fff;
+    position: relative;
+    margin: 0 auto;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
 .header-left,
 .header-right {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .logo-img {
-  height: 32px;
+    height: 32px;
 }
 
 .header-right button,
 .filter-icons button {
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.filter-icons  {
-  font-weight: 500;
-  font-size: 20px;
-  color: #444;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #00bcd4;
-}
-
-.logo span {
-  color: #00a2b8;
-}
-
-.icons i {
-  font-size: 18px;
-  margin-left: 16px;
-  color: #444;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
 }
 
 .alert-box {
-  background-color: #f8f8f8;
-  padding: 12px;
-  margin: 12px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
+    background-color: #f8f8f8;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
 }
 
 .menu-item,
 .menu-item:visited {
-  text-decoration: none;  
-  color: inherit;          
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 8px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fff;
-  text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 8px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
 }
 
+body, html, .wrapper, .header, .menu-item, .footer, .job-box, .job-info p,
+.section-title, .logo, .logo span, .alert-box, .grid, .footer-item,
+.menu-item p, .filter-item, .filter-icons, .icon-group span {
+    color: #3f3f3f;
+}
 
 .menu-item img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 8px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
 }
 
 .menu-item p,
 .menu-item p:visited {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .filter-icons {
-  display: flex;
-  justify-content: space-around;
-  padding: 16px 8px;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 8px;
+    border-bottom: 1px solid #eee;
 }
 
 .job-box {
-  margin: 16px;
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background: #f9f9f9;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #f9f9f9;
 }
 
 .tags span {
-  display: inline-block;
-  background: #e0f7fa;
-  color: #00796b;
-  font-size: 12px;
-  font-weight: 500;
-  margin: 4px 4px 8px 0;
-  padding: 4px 8px;
-  border-radius: 12px;
+    display: inline-block;
+    background: #e0f7fa;
+    color: #00796b;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 4px 4px 8px 0;
+    padding: 4px 8px;
+    border-radius: 12px;
 }
 
 .job-info p {
-  margin: 4px 0;
-  font-size: 14px;
+    margin: 4px 0;
+    font-size: 14px;
 }
 
 .job-buttons {
-  margin-top: 12px;
-  display: flex;
-  justify-content: space-between;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .job-buttons button {
-  flex: 1;
-  margin: 0 4px;
-  padding: 8px;
-  font-size: 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    flex: 1;
+    margin: 0 4px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .view-btn {
-  background-color: #00adad;
-  color: white;
+    background-color: #00adad;
+    color: white;
 }
 
 .apply-btn {
-  background-color: #00adad;
-  color: white;
+    background-color: #00adad;
+    color: white;
 }
 
 .menu-section h3 {
-  padding-left: 12px;
-  margin: 8px 0;
-  font-size: 15px;
+    padding-left: 12px;
+    margin: 8px 0;
+    font-size: 15px;
 }
 
-
-
-/* 하단 네비게이션 */
 .footer {
-  width: 100%;
-  max-width: 412px;
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: space-around;
-  padding: 8px 0;
-  border-top: 1px solid #e0e0e0;
-  background: #fff;
-  z-index: 1000;
+    width: 100%;
+    max-width: 412px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+    z-index: 1000;
 }
 
 .footer-item,
 .footer-item:visited {
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 10px;
-  font-weight: 700;
-  transition: transform 0.2s ease;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
 }
 
 .footer-item img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 4px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
 }
 
 .footer-item:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-
-
 #alert-text {
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .text-slider {
-  height: 24px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
 }
 
 #slider-text {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  margin: 0;
-  font-weight: bold;
-  position: relative;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    margin: 0;
+    font-weight: bold;
+    position: relative;
 }
 
 .filter-item,
 .filter-item:visited {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 .icon-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
 }
 
 .icon-group img {
-  width: 36px;
-  height: 36px;
-  display: block;
+    width: 36px;
+    height: 36px;
+    display: block;
 }
 
 .icon-group span {
-  font-size: 12px;
-  line-height: 1.2;
-  color: #333;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #333;
 }
 
 .filter-icons {
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 8px;
-  border-bottom: 1px solid #eee;
-  background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
 }
 
 .alert-link,
 .alert-link:visited {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-/* 폰트 선언 */
 .faq-slider {
-  font-family: 'Paperlogy', sans-serif;
-  font-weight: 400;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 400;
 }
 
 .menu-item,
@@ -342,59 +327,58 @@ html, body {
 .menu-item:hover,
 .menu-item:active,
 .menu-item:focus {
-  text-decoration: none;
-  color: inherit;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 8px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fff;
-  text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 8px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
 }
 
 .menu-item img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 8px;
-  display: block;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+    display: block;
 }
 
 .menu-item p {
-  margin: 0;
-  font-weight: bold;
-  font-size: 14px;
-  color: inherit;
-  text-decoration: none;
+    margin: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .section-title {
-  padding-left: 16px;
-  margin-top: 24px;
-  font-size: 16px;
-  font-weight: bold;
+    padding-left: 16px;
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .job-box {
-  max-width: 100%;
-  min-height: 100px;
-  margin: 16px;
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background: #f9f9f9;
+    max-width: 100%;
+    min-height: 100px;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #f9f9f9;
 }
 
 .job-card,
 .job-card:visited {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .job-info p {
-  margin: 4px 0;
-  font-size: 14px;
+    margin: 4px 0;
+    font-size: 14px;
 }

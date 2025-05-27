@@ -61,8 +61,9 @@
 body {
   font-family: Paperlogy, sans-serif;
   background: #f0f0f0;
-  color: #333;
+  color: #3f3f3f;
 }
+
 .wrapper {
   max-width: 412px;
   margin: 0 auto;
@@ -91,9 +92,10 @@ body {
 }
 .title {
   flex: 1;
+  font-size: 18px;
+  
   margin-left: 8px;
   text-align: left;
-  font-size: 16px;
   font-weight: bold;
 }
 .subtitle p {
