@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용정보</title>
+    <link rel="stylesheet" href="./job_listing.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <a href="../6메인/Ywork.html" class="back-btn">
+                <img src="../공통/img/뒤로가기.png" alt="뒤로가기 버튼">
+            </a>
+            <div class="header-title">채용정보</div>
+        </header>
+        <div class="content">
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="tab-btn" data-filter="지역">지역</button>
+                <button class="tab-btn" data-filter="업계별">업계별</button>
+                <button class="tab-btn" data-filter="기간">기간</button>
+                <button class="filter-icon-btn" data-reset title="초기화">
+                    <img src="./img/reset.png" alt="초기화 버튼" class="reset-icon">
+                </button>
+            </div>
+
+            <div id="filterPanel" class="filter-panel">
+                <!-- Filter Panel -->
+                <div class="filter-section" id="regionSection">
+                    <h3>지역</h3>
+                    <div class="option-buttons" id="regionButtons">
+                        <button data-value="서울특별시">서울특별시</button>
+                        <button data-value="경기도">경기도</button>
+                        <button data-value="인천광역시">인천광역시</button>
+                        <button data-value="강원특별자치도">강원특별자치도</button>
+                        <button data-value="대전광역시">대전광역시</button>
+                        <button data-value="세종특별자치시">세종특별자치시</button>
+                        <button data-value="충청남도">충청남도</button>
+                        <button data-value="충청북도">충청북도</button>
+                        <button data-value="부산광역시">부산광역시</button>
+                        <button data-value="울산광역시">울산광역시</button>
+                        <button data-value="경상남도">경상남도</button>
+                        <button data-value="경상북도">경상북도</button>
+                        <button data-value="대구광역시">대구광역시</button>
+                        <button data-value="광주광역시">광주광역시</button>
+                        <button data-value="전라남도">전라남도</button>
+                        <button data-value="전북특별자치도">전북특별자치도</button>
+                        <button data-value="제주특별자치도">제주특별자치도</button>
+                    </div>
+                    <div class="form-group mt-12" style="flex-wrap: wrap; gap: 8px;"></div>
+                </div>
+
+
+                <div class="filter-section" id="industrySection">
+                    <h3>업계별</h3>
+                    <div class="option-buttons" id="industryButtons">
+                        <button data-value="서빙">서빙</button>
+                        <button data-value="뷔페">뷔페</button>
+                        <button data-value="카페">카페</button>
+                        <button data-value="플랫폼 업무">플랫폼 업무</button>
+                        <button data-value="패스트 푸드">패스트 푸드</button>
+                        <button data-value="편의점/소형마트">편의점/소형마트</button>
+                        <button data-value="배달">배달</button>
+                        <button data-value="청소">청소</button>
+                        <button data-value="매장관리">매장관리</button>
+                        <button data-value="주방보조">주방보조</button>
+                    </div>
+                    <div class="form-group mt-12" style="flex-wrap: wrap; gap: 8px;"></div>
+                </div>
+
+                <div class="filter-section" id="periodSection">
+                    <h3>근무요일</h3>
+                    <div class="option-buttons" id="weekdayButtons">
+                        <button data-value="월">월</button>
+                        <button data-value="화">화</button>
+                        <button data-value="수">수</button>
+                        <button data-value="목">목</button>
+                        <button data-value="금">금</button>
+                        <button data-value="토">토</button>
+                        <button data-value="일">일</button>
+                    </div>
+                    <div class="form-group mt-12" style="flex-wrap: wrap; gap: 8px;"></div>
+                </div>
+            </div>
+            <div id="filterBadges" class="filter-badge-container"></div>
+            <!-- Job Listings -->
+            <div class="job-listings">
+                <!-- Job Card 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="job-tags">
+                            <span class="tag blue">청소년친화기업</span>
+                            <span class="tag green">근로계약서약속</span>
+                            <span class="tag orange">착한 고용주</span>
+                            <span class="tag pink">청소년알바보호조례</span>
+                        </div>
+                        <button class="favorite-btn" data-fav>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="company-name">투썸플레이스금남로케이엔타워점</div>
+                    <div class="job-title">투썸플레이스 금남로kn 타워점 주말 스텝 구합니다.</div>
+                    <div class="job-info">
+                        <div class="info-item">
+                            <span class="label">근무시간 :</span>
+                            <span class="value">10:00~15:00</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">시급 :</span>
+                            <span class="value">10,500원</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-primary" data-detail="1">상세보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom footer -->
+    <footer class="footer">
+        <a href="chat.html" class="footer-item">
+            <img src="../6메인/img/teenyicons_chatbot-outline.png" alt="AI채팅">
+            <span>AI상담</span>
+        </a>
+        <a href="map.html" class="footer-item">
+            <img src="../6메인/img/uiw_map.png" alt="알바지도">
+            <span>알바지도</span>
+        </a>
+        <a href="./Ywork.html" class="footer-item">
+            <img src="../6메인/img/Group 111.png" alt="홈">
+            <span>홈</span>
+        </a>
+        <a href="forum.html" class="footer-item">
+            <img src="../6메인/img/ep_chat-dot-round.png" alt="채팅">
+            <span>채팅</span>
+        </a>
+        <a href="account.html" class="footer-item">
+            <img src="../6메인/img/iconamoon_profile-light.png" alt="마이페이지">
+            <span>마이페이지</span>
+        </a>
+    </footer>
+
+    </div>
+
+    <script type="module" src="./job_listing.js"></script>
+</body>
+
+</html>
