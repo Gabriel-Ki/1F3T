@@ -2,14 +2,18 @@
 document.getElementById('photoUpload').addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (file) {
-        console.log('사진 파일 선택됨:', file.name);
+        const fileNameBox = document.getElementById('photoFileName');
+        fileNameBox.textContent = file.name;
+        showToast('사진 파일이 등록되었습니다');
     }
 });
 
 document.getElementById('resumeUpload').addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (file) {
-        console.log('자기소개서 파일 선택됨:', file.name);
+        const fileNameBox = document.getElementById('resumeFileName');
+        fileNameBox.textContent = file.name;
+        showToast('자기소개서 파일이 등록되었습니다');
     }
 });
 document.getElementById('photoUploadBtn').addEventListener('click', () => {
@@ -19,6 +23,8 @@ document.getElementById('photoUploadBtn').addEventListener('click', () => {
 document.getElementById('resumeUploadBtn').addEventListener('click', () => {
     document.getElementById('resumeUpload').click();
 });
+
+
 
 // 이메일 선택 과정
 const domainSelect = document.getElementById('domainSelect');
@@ -194,10 +200,12 @@ function enableDragAndDrop(dropAreaId, inputId, fileListId) {
         const closeBtn = document.createElement('button');
         closeBtn.textContent = '×';
         closeBtn.className = 'remove-badge';
+        closeBtn.type = 'button';
+
         closeBtn.onclick = () => {
-            badge.remove();
-            fileInput.value = ''; // 파일 초기화
-            showToast('파일이 삭제되었습니다');
+            badge.remove();               // 화면에서 파일 이름 제거
+            fileInput.value = '';        // input 초기화 (파일 다시 선택 가능하게)
+            showToast(`파일이 삭제되었습니다.`);
         };
 
         badge.appendChild(closeBtn);
@@ -210,30 +218,18 @@ function enableDragAndDrop(dropAreaId, inputId, fileListId) {
         if (files.length) {
             fileInput.files = files;
             addFileBadge(files[0].name);
-            showToast('파일이 등록되었습니다');
+            showToast(`"${files[0].name}" 파일이 등록되었습니다.`);
         }
     });
 
     fileInput.addEventListener('change', () => {
         if (fileInput.files.length) {
             addFileBadge(fileInput.files[0].name);
-            showToast('파일이 등록되었습니다');
+            showToast(`"${fileInput.files[0].name}" 파일이 등록되었습니다.`);
         }
     });
 }
 
-function showToast(message) {
-    let toast = document.getElementById('toast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'toast';
-        toast.className = 'toast';
-        document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
-}
 
 // 실행
 enableDragAndDrop('photoDropArea', 'photoUpload', 'photoFileName');
@@ -256,4 +252,54 @@ textareas.forEach(textarea => {
 // 뒤로가기 버튼
 document.querySelector('.back-btn').addEventListener('click', function () {
     history.back();
+});
+
+// 버튼 눌렀을 때 메세지
+function showToast(message) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+
+
+// Toast 메세지 모음
+document.getElementById('tempSaveBtn').addEventListener('click', () => {
+    showToast("임시저장 되었습니다");
+});
+// 등록하기 → 다음 페이지로 이동하며 메시지 표시
+document.getElementById('submitBtn').addEventListener('click', () => {
+    // 페이지 이동할 URL
+    const nextPage = 'complete.html';
+    // 메시지를 로컬스토리지에 저장
+    localStorage.setItem('registerMessage', '등록이 완료되었습니다');
+    // 페이지 이동
+    window.location.href = nextPage;
+});
+
+// 주소 검색
+document.getElementById('searchAddressBtn').addEventListener('click', function () {
+    new daum.Postcode({
+        oncomplete: function (data) {
+            let addr = ''; // 주소 변수
+            if (data.userSelectedType === 'R') {
+                addr = data.roadAddress; // 도로명 주소
+            } else {
+                addr = data.jibunAddress; // 지번 주소
+            }
+
+            document.getElementById('addressInput').value = addr;
+            showToast('주소가 입력되었습니다');
+        }
+    }).open();
 });

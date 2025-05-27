@@ -218,6 +218,26 @@ header {
     background-color: #00ADAD;
 }
 
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 173, 173, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 3000;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
 
 
 .action-buttons {
@@ -278,28 +298,9 @@ header {
     cursor: pointer;
 }
 
-.toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #323232;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 4px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 9999;
-}
-
-.toast.show {
-    opacity: 1;
-}
-
 #selectedDongs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 2행 3열 */
     gap: 8px;
     margin-top: 12px;
 }

@@ -7,6 +7,7 @@
     <title>이력서 등록</title>
     <link rel="stylesheet" href="register.css" />
 </head>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <body>
     <div class="wrapper">
@@ -45,7 +46,6 @@
                     </div>
                     <button type="button" class="btn btn-primary mt-12" id="photoUploadBtn">파일 찾기</button>
                     <div id="photoFileName" class="file-name-preview"></div>
-                    <div id="toast" class="toast"></div>
                 </div>
 
                 <!-- 개인정보 -->
@@ -90,7 +90,9 @@
                     </div>
 
                     <!-- 주소 -->
-                    <input type="text" class="form-input mt-12" placeholder="주소" />
+                    <button type="button" class="btn btn-primary mt-12" id="searchAddressBtn">주소 검색</button>
+                    <input type="text" id="addressInput" class="form-input mt-12" placeholder="주소" readonly />
+                    <input type="text" id="addressDetail" class="form-input mt-12" placeholder="상세주소 ex) 101동 1101호" />
                 </div>
 
                 <!-- 희망근무지 -->
@@ -166,9 +168,12 @@
 
                 <!-- 자기소개서 -->
                 <div class="form-section">
-                    <div class="form-label">자기소개서<span class="required">*</span></div>
+                    <div class="form-label">
+                        자기소개서<span class="required">*</span>
+                        <span class="form-info">직접 작성 또는 파일 업로드</span>
+                    </div>
                     <textarea class="form-input textarea" class="textarea" rows="4" maxlength="300"
-                        placeholder="자기소개서 작성 또는 파일을 업로드 해주세요.    (300자 이내)"></textarea>
+                        placeholder="300자 이내로 작성해주세요."></textarea>
                     <div class="character-count">
                         <span class="character-limit">0</span>/300
                     </div>
@@ -184,15 +189,15 @@
                     <div class="file-info">파일은 포맷 5MB까지 등록할 수 있습니다.</div>
                     <button type="button" class="btn btn-primary mt-12" id="resumeUploadBtn">파일 찾기</button>
                     <div id="resumeFileName" class="file-name-preview"></div>
-                    <div id="toast" class="toast"></div>
                 </div>
             </form>
         </div>
 
         <div class="action-buttons">
-            <button type="button" class="btn btn-cancel">임시저장</button>
-            <button type="button" class="btn btn-submit">등록하기</button>
+            <button type="button" class="btn btn-cancel" id="tempSaveBtn">임시저장</button>
+            <button type="button" class="btn btn-submit" id="submitBtn">등록하기</button>
         </div>
+        <div id="toast" class="toast"></div>
     </div>
 
     <script type="module" src="register.js"></script>

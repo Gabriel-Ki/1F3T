@@ -7,161 +7,15 @@
   <title>개인회원로그인</title>
   <link rel="stylesheet" href="./signin.css" />
 </head>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .login-wrapper {
-    width: 100%;
-    max-width: 360px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .top-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .back-arrow {
-    font-size: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-
-  .title {
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  .logo-container {
-    text-align: center;
-    margin: 20px 0 10px;
-  }
-
-  .logo {
-    width: 120px;
-    height: auto;
-  }
-
-  .tab-container {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #00b3a4;
-    border-radius: 8px;
-    margin: 20px 0;
-    overflow: hidden;
-  }
-
-  .tab {
-    flex: 1;
-    padding: 10px;
-    background: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .tab.active {
-    background-color: #00b3a4;
-    color: #fff;
-  }
-
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .input-icon {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 8px 12px;
-    background-color: #f9f9f9;
-  }
-
-  .input-icon img {
-    width: 20px;
-    margin-right: 10px;
-  }
-
-  .input-icon input {
-    border: none;
-    outline: none;
-    width: 100%;
-    background: none;
-  }
-
-  .login-btn {
-    width: 100%;
-    padding: 14px;
-    background-color: #00b3a4;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-
-  .social-login {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .social-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .social-btn img {
-    width: 24px;
-    height: 24px;
-  }
-
-  .link-group {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-  }
-
-  .link-group a {
-    text-decoration: none;
-    color: #6a33aa;
-    margin: 0 5px;
-  }
-</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="login-wrapper">
     <header class="top-bar">
-      <span class="back-arrow">←</span>
+      <a href="../1처음화면/entry.html" class="back-btn">
+        <img src="../공통/img/뒤로가기.png" alt="back-btn" />
+      </a>
       <span class="title">통합 로그인</span>
     </header>
 
@@ -199,7 +53,7 @@
       <span>|</span>
       <a href="#">비밀번호 찾기</a>
       <span>|</span>
-      <a href="#">회원가입</a>
+      <a href="../3회원가입/">회원가입</a>
     </div>
   </div>
 </body>
