@@ -127,17 +127,19 @@ html, body {
   height: 45px; 
   justify-content: center;   
   align-items: center;
+  font-weight: 500;
         
 }
 
 .btn-outline {
+  font-family: 'Paperlogy', 'Pretendard', sans-serif; 
   font-weight: 400;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 6px; 
   padding: 12px;
-   width: 140px;
+  width: 140px;
   height: 48px;
   border: 1.5px solid #00ADAD;
   background: none;
@@ -147,6 +149,7 @@ html, body {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-weight: 500;
 }
 
 .btn-outline:hover {
@@ -238,6 +241,7 @@ html, body {
       border-radius: 8px;
       cursor: pointer;
       border: none;
+      font-family: 'Paperlogy', 'Pretendard', sans-serif;
     }
 
     .modal-btn.cancel {

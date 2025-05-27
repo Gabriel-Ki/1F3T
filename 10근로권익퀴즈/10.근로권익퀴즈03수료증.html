@@ -34,11 +34,11 @@
 
       <!-- 버튼 영역 -->
       <div class="button-row">
-        <button class="btn-outline" onclick="showToast('저장되었습니다')">
+        <button class="btn-outline" onclick="showToast('저장되었습니다')" class="modal-btn confirm">
           <img src="./img/st.png" alt="저장" />
           저장하기
         </button>
-        <button class="btn-outline" onclick="showToast('링크가 복사되었습니다')">
+        <button class="btn-outline" onclick="showToast('링크가 복사되었습니다')"class="modal-btn">
           <img src="./img/sh.png" alt="공유" />
           공유하기
         </button>
@@ -75,7 +75,7 @@
         <p class="modal-message">정말 나가시겠습니까?</p>
         <div class="modal-buttons">
           <button class="modal-btn cancel" onclick="hideConfirm()">취소</button>
-          <button class="modal-btn confirm" onclick="goToMain()">나가기</button>
+          <button class="modal-btn confirm" onclick="goToMain()"class="modal-btn paperlogy-text">나가기</button>
         </div>
       </div>
     </div>
