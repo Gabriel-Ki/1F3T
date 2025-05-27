@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기업회원 가입</title>
+    <link rel="stylesheet" href="./기업회원가입.css" />
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- 헤더 -->
+      <header class="header">
+        <a href="../3회원가입/dqwfqw.html" class="back-btn">
+          <img src="../공통/img/뒤로가기.png" alt="back-btn" />
+        </a>
+        <h1 class="title">기업 회원가입</h1>
+      </header>
+
+      <!-- 인증 섹션 -->
+      <div class="card auth-card">
+        <div class="auth-toggle">
+          <label class="auth-option">
+            <input type="radio" name="auth" value="phone" checked />
+            <span>휴대폰 인증</span>
+          </label>
+          <label class="auth-option">
+            <input type="radio" name="auth" value="ipin" />
+            <span>아이핀(i-PIN) 인증</span>
+          </label>
+        </div>
+        <div class="auth-input">
+          <div class="auth-content" data-auth="phone">
+            <select class="form-input dropdown" id="telselect" style="flex: 1;">
+              <option value="">통신사</option>
+              <option value="SKT">SKT</option>
+              <option value="KT">KT</option>
+              <option value="LGU+">LGU+</option>
+              <option value="SKT알뜰폰">SKT알뜰폰</option>
+              <option value="KT알뜰폰">KT알뜰폰</option>
+              <option value="LGU+알뜰폰">LGU+알뜰폰</option>
+            </select>
+            <input
+              type="tel"
+              id="phoneInput"
+              placeholder="본인명의 휴대폰으로 인증 가능"
+              inputmode="numeric"
+              maxlength="11"
+              pattern="\d{11}"
+              title="핸드폰 번호 11자리 (숫자만 입력)"
+              required
+            />
+            <button type="button" class="btn btn-auth">인증하기</button>
+          </div>
+
+          <div class="auth-content hidden" data-auth="ipin">
+            <p>아이핀 인증을 위해 아래 버튼을 눌러주세요.</p>
+            <button type="button" class="btn btn-auth">
+              아이핀<br />인증하기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 회원가입 폼 -->
+      <form class="card form-card">
+        <div class="form-group">
+          <label>아이디<span class="required">*</span></label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label>비밀번호<span class="required">*</span></label>
+          <input type="password" />
+        </div>
+
+        <div class="form-group">
+          <label>이름<span class="required">*</span></label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group align-center">
+          <label class="form-label-inline1">이메일</label>
+          <input
+            type="text"
+            class="form-input"
+            id="emailId"
+            placeholder=" 아이디"
+            style="flex: 1;"
+          />
+          <span class="email-separator">@</span>
+          <input
+            type="text"
+            class="form-input"
+            id="emailDomain"
+            placeholder=" 도메인"
+            style="flex: 1;"
+          />
+          <select
+            class="form-input dropdown"
+            id="domainSelect"
+            style="flex: 1;"
+          >
+            <option value="">선택</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="daum.net">daum.net</option>
+            <option value="custom">직접입력</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>회사명/점포명<span class="required">*</span></label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label>대표자명<span class="required">*</span></label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label>회사/점포 주소<span class="required">*</span></label>
+          <input
+            type="text"
+            id="addressInput"
+            class="form-input mt-12"
+            placeholder="주소"
+            readonly
+          />
+          <button
+            type="button"
+            class="btn btn-primary mt-12"
+            id="searchAddressBtn"
+          >
+            주소 검색
+          </button>
+          <input
+            type="text"
+            id="addressDetail"
+            class="form-input mt-12"
+            placeholder="상세주소 ex) 101동 1101호"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>증명원 발급번호<span class="required">*</span></label>
+          <div class="cert-number">
+            <input type="text" maxlength="4" />
+            <input type="text" maxlength="3" />
+            <input type="text" maxlength="4" />
+            <input type="text" maxlength="3" />
+          </div>
+          <small>
+            <span class="highlight">발급일 90일 이내</span> 사업자등록증명원만 가능
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>사업자 등록증<span class="required">*</span></label>
+          <div class="file-upload">
+            <!-- 드래그 앤 드롭 영역 -->
+            <div class="file-upload-area mt-12" id="resumeDropArea">
+              <img
+                src="../공통/img/material-symbols-light_upload.png"
+                alt="upload icon"
+              />
+              <div class="upload-text">
+                이곳에 파일을 업로드하거나,<br />
+                아래 버튼을 눌러 파일을 등록해주세요.
+              </div>
+            </div>
+
+            <!-- 실제 파일 input 은 숨김 -->
+            <input
+              type="file"
+              id="cardload"
+              class="hidden"
+              accept=".doc,.docx,.pdf,.png,.jpeg"
+            />
+
+            <!-- 파일명 표시와 버튼을 한 줄에 -->
+            <div class="file-footer">
+              <span class="file-name">선택된 파일 없음</span>
+              <button
+                type="button"
+                class="btn-file"
+                onclick="document.getElementById('cardload').click()"
+              >
+                파일 찾기
+              </button>
+            </div>
+
+            <!-- 안내 문구 -->
+            <div class="file-info">
+              파일은 최대 5MB까지 등록할 수 있습니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group agreements">
+          <label class="agree-all">
+            <input type="checkbox" id="agreeAll" /> 이용약관에 전체동의
+          </label>
+          <ul>
+            <li>
+              <label>
+                <input type="checkbox" /> <span class="required">[필수]</span> 만 15세 이상입니다.
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" /> <span class="required">[필수]</span> 서비스 이용약관 동의
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" /> <span class="required">[필수]</span> 개인정보 수집 및 이용 동의
+              </label>
+            </li>
+            <li>
+              <label><input type="checkbox" /> [선택] 개인정보 수집 및 이용 동의</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" /> [선택] 광고성 정보 수신 동의 (SMS/MMS)
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" /> [선택] 광고성 정보 수신 동의 (이메일)
+              </label>
+            </li>
+          </ul>
+        </div>
+        <button type="submit" class="btn btn-submit">가입하기</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const agreeAll = document.getElementById('agreeAll');
+        const childCheckboxes = document.querySelectorAll(
+          '.agreements ul li input[type="checkbox"]'
+        );
+
+        // 1) 전체동의 클릭 시 하위 모두 체크/언체크
+        agreeAll.addEventListener('change', () => {
+          childCheckboxes.forEach((cb) => (cb.checked = agreeAll.checked));
+        });
+
+        // 2) (선택) 개별 해제 시 전체동의 자동 언체크, 모두 체크 시 전체동의 자동 체크
+        childCheckboxes.forEach((cb) => {
+          cb.addEventListener('change', () => {
+            if (!cb.checked) {
+              agreeAll.checked = false;
+            } else if ([...childCheckboxes].every((c) => c.checked)) {
+              agreeAll.checked = true;
+            }
+          });
+        });
+      });
+
+      function enableDragAndDrop(dropAreaId, inputId, fileListId) {
+        const dropArea = document.getElementById(dropAreaId);
+        const fileInput = document.getElementById(inputId);
+        const fileList = document.getElementById(fileListId);
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+          dropArea.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          });
+        });
+
+        ['dragenter', 'dragover'].forEach((eventName) => {
+          dropArea.addEventListener(eventName, () =>
+            dropArea.classList.add('highlight')
+          );
+        });
+
+        ['dragleave', 'drop'].forEach((eventName) => {
+          dropArea.addEventListener(eventName, () =>
+            dropArea.classList.remove('highlight')
+          );
+        });
+
+        dropArea.addEventListener('click', () => {
+          fileInput.click();
+        });
+
+        function addFileBadge(fileName) {
+          const badge = document.createElement('span');
+          badge.className = 'file-badge';
+          badge.textContent = fileName;
+
+          const closeBtn = document.createElement('button');
+          closeBtn.textContent = '×';
+          closeBtn.className = 'remove-badge';
+          closeBtn.type = 'button';
+
+          closeBtn.onclick = () => {
+            badge.remove(); // 화면에서 파일 이름 제거
+            fileInput.value = ''; // input 초기화 (파일 다시 선택 가능하게)
+            showToast(`파일이 삭제되었습니다.`);
+          };
+
+          badge.appendChild(closeBtn);
+          fileList.innerHTML = '';
+          fileList.appendChild(badge);
+        }
+
+        dropArea.addEventListener('drop', (e) => {
+          const files = e.dataTransfer.files;
+          if (files.length) {
+            fileInput.files = files;
+            addFileBadge(files[0].name);
+            showToast(`"${files[0].name}" 파일이 등록되었습니다.`);
+          }
+        });
+
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files.length) {
+            addFileBadge(fileInput.files[0].name);
+            showToast(`"${fileInput.files[0].name}" 파일이 등록되었습니다.`);
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const fileInput = document.getElementById('cardload');
+        const fileNameSpan = document.querySelector('.file-footer .file-name');
+        const dropArea = document.getElementById('resumeDropArea');
+
+        // 1) input 에서 선택했을 때 파일명 업데이트
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files.length) {
+            fileNameSpan.textContent = fileInput.files[0].name;
+          } else {
+            fileNameSpan.textContent = '선택된 파일 없음';
+          }
+        });
+
+        // 2) 드래그 앤 드롭 했을 때도 동일하게
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((evt) =>
+          dropArea.addEventListener(evt, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          })
+        );
+        ['dragenter', 'dragover'].forEach((evt) =>
+          dropArea.addEventListener(evt, () =>
+            dropArea.classList.add('highlight'
+            )
+          )
+        );
+        ['dragleave', 'drop'].forEach((evt) =>
+          dropArea.addEventListener(evt, () =>
+            dropArea.classList.remove('highlight'
+            )
+          )
+        );
+        dropArea.addEventListener('drop', (e) => {
+          const files = e.dataTransfer.files;
+          if (!files.length) return;
+          fileInput.files = files; // input 파일 목록 갱신
+          fileNameSpan.textContent = files[0].name;
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('form'); // 혹은 .form-card
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          let missing = false;
+
+          // 각 .form-group 중에 <span class="required">이 있는 그룹만 체크
+          form.querySelectorAll('.form-group').forEach((group) => {
+            if (group.querySelector('span.required')) {
+              const field = group.querySelector('input, select, textarea');
+              if (!field) return;
+              // file input 처리
+              if (field.type === 'file') {
+                if (!field.files || field.files.length === 0) missing = true;
+              } else {
+                if (!field.value.trim()) missing = true;
+              }
+            }
+          });
+
+          if (missing) {
+            alert('작성하지 않은 항목이 있습니다.');
+          } else {
+            alert('가입되었습니다.');
+            form.submit();
+          }
+        });
+      });
+
+      document.getElementById('searchAddressBtn').addEventListener('click', function () {
+        new daum.Postcode({
+          oncomplete: function (data) {
+            let addr = ''; // 주소 변수
+            if (data.userSelectedType === 'R') {
+              addr = data.roadAddress; // 도로명 주소
+            } else {
+              addr = data.jibunAddress; // 지번 주소
+            }
+
+            document.getElementById('addressInput').value = addr;
+            showToast('주소가 입력되었습니다');
+          }
+        }).open();
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const radios = document.querySelectorAll('input[name="auth"]');
+        const contents = document.querySelectorAll('.auth-content');
+
+        function updateAuthContent() {
+          const selected = document.querySelector('input[name="auth"]:checked').value;
+          contents.forEach((block) => {
+            if (block.dataset.auth === selected) {
+              block.classList.remove('hidden');
+            } else {
+              block.classList.add('hidden');
+            }
+          });
+        }
+
+        // 초기 상태 반영
+        updateAuthContent();
+
+        // 라디오 변경 시 컨텐츠 토글
+        radios.forEach((radio) => {
+          radio.addEventListener('change', updateAuthContent);
+        });
+      });
+
+      const phoneInput = document.getElementById('phoneInput');
+      phoneInput.addEventListener('input', () => {
+        // 숫자가 아닌 문자 제거
+        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+      });
+    </script>
+  </body>
+</html>
