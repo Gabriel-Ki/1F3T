@@ -181,8 +181,8 @@ function getJobId(jobCard) {
 // ====================================
 function viewDetails(jobId) {
     console.log(`채용공고 ${jobId} 상세보기`);
-    alert(`채용공고 ${jobId}의 상세 정보를 확인합니다.`);
-    // 실제 이동: window.location.href = `/job-details/${jobId}`;
+
+    window.location.href = "../13채용정보상세/job_list_detail.html";
 }
 
 
