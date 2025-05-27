@@ -29,7 +29,7 @@
   </nav>
 
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="날짜, 공고제목, 기업명, 담당자, 공고번호 검색"/>
+      <input type="text" class="search-input" placeholder="공고제목, 기업명, 업직종 검색"/>
       <button class="search-btn"><span class="material-icons">search</span></button>
     </div>
 
@@ -62,26 +62,19 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 전체 공고(.card) 개수 세기
     const count = document.querySelectorAll('.content .card').length;
-    // .total 요소에 "전체 X건" 텍스트 삽입
     document.querySelector('.filter-bar .total')
       .textContent = `전체 ${count}건`;
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-  // 모든 탭을 순회
   document.querySelectorAll('.tabs .tab').forEach(async tab => {
     const href = tab.getAttribute('href');
     try {
-      // 1) 해당 페이지 HTML 가져오기
       const res  = await fetch(href, { cache: 'no-cache' });
       const text = await res.text();
-      // 2) 파싱해서 DOM 얻기
       const doc = new DOMParser().parseFromString(text, 'text/html');
-      // 3) .content .card 개수 세기
       const cnt = doc.querySelectorAll('.content .card').length;
-      // 4) 탭 안 .count 업데이트
       tab.querySelector('.count').textContent = cnt;
     } catch (e) {
       console.error(`Failed to load ${href}:`, e);
@@ -89,7 +82,6 @@
     }
   });
 
-  // **현재 페이지**에서는 active 클래스도 붙여주기
   const path = location.pathname.split('/').pop();
   document.querySelectorAll('.tabs .tab').forEach(tab => {
     if (tab.getAttribute('href') === path) {

@@ -15,7 +15,7 @@
     <!-- 헤더 -->
     <header class="header">
     <div class="header-left">
-        <a href="Ywork.html"> <!-- 이 부분 추가 -->
+        <a href="Ywork.html">
         <img src="./img/로고 문자형.png" class="logo-img" alt="Y:WORK 로고">
         </a>
     </div>
@@ -176,7 +176,6 @@
         const textEl = document.getElementById("slider-text");
 
         function slideText() {
-            // 현재 텍스트 위로 사라지기
             textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
             textEl.style.transform = "translateY(-100%)";
             textEl.style.opacity = "0";
@@ -185,11 +184,9 @@
                 index = (index + 1) % texts.length;
                 textEl.textContent = texts[index];
 
-                // 새로운 텍스트 아래에서 시작
                 textEl.style.transition = "none";
                 textEl.style.transform = "translateY(100%)";
 
-                // 잠깐 후 위로 올라오며 나타나기
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
@@ -197,7 +194,7 @@
                         textEl.style.opacity = "1";
                     });
                 });
-            }, 500); // 이전 애니메이션 완료 후
+            }, 500); 
         }
 
         setInterval(slideText, 5000);
