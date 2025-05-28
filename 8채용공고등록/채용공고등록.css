@@ -53,6 +53,12 @@
   font-style: normal;
 }
 /* reset & 기본 */
+:root {
+  --primary: #00adad;
+  --border: #ccc;
+  --text: #444;
+}
+
 
 /* 모든 폼 컨트롤에 Paperlogy 폰트 적용 */
 input,
@@ -85,12 +91,11 @@ a, a:visited {
   background: #fff;
   min-height: 100vh;
   position: relative;
-  padding-top: 60px;
 }
 
 /* header */
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 412px;
   height: 60px;
@@ -119,8 +124,10 @@ a, a:visited {
 }
 .form label {
   display: block;
+  font-weight: 700; 
   margin-top: 16px;
-  font-size: 14px;
+  margin-bottom: 8px;
+  font-size: 16px;
 }
 .required {
   color: #FF9500;
@@ -134,14 +141,10 @@ a, a:visited {
 .form textarea {
   width: 100%;
   margin-top: 6px;
-  padding: 8px;
+  padding: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.form label {
-  font-weight: 700; 
+  font-size: 16px;
+  border-radius: 8px;
 }
 
 .inline-group {
@@ -169,16 +172,18 @@ a, a:visited {
 
 .address-search .search-btn {
   padding: 7px 12px;     
-  font-size: 14px;
-  display: inline-flex;        /* 버튼을 flex 컨테이너로 */
-  align-items: center;         /* 수직 중앙 정렬 */
-  justify-content: center;     /* 수평 중앙 정렬 (기존에도 작동) */
-  line-height: 1.2;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;      
+  align-items: center;        
+  justify-content: center;    
   box-sizing: border-box;
   background: #00adad;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  height: 50px;
+  width: 70px;
   cursor: pointer;
 }
 
@@ -193,7 +198,7 @@ a, a:visited {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 20px;
   min-height: 100px;         
   display: flex;
@@ -280,4 +285,109 @@ a, a:visited {
 body.fade-out {
   opacity: 0;
   transition: opacity 0.5s;
+}
+
+
+/* footer 고정 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 412px;               /* wrapper와 동일한 너비 */
+  background: #fff;
+  padding: 12px 16px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  z-index: 20;
+}
+
+/* wrapper 아래로 컨텐츠가 가려지지 않도록 패딩 추가 */
+.wrapper {
+  padding-bottom: 100px;       /* footer 높이 + 여유 */
+}
+
+/* 기존 btn-group 마진 재정의 */
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin: 0;                  
+}
+.btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+}
+.draft {
+  background: #ccc;
+  color: #777;
+}
+.submit {
+  background: #00adad;
+  color: #fff;
+}
+
+/* File Upload */
+.file-upload { display: flex; flex-direction: column; }
+.file-upload-area {
+    padding: 40px 20px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+.file-upload-area:hover { border-color: var(--primary); }
+.file-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+.hidden {
+    display: none !important;
+  }
+.file-footer .file-name {
+    font-size: 14px;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+}
+.btn-file {
+    padding: 8px 16px;
+    background: var(--primary);
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.file-info {
+    font-size: 12px;
+    color: #666;
+    margin: 8px 0 12px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 173, 173, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 3000;
+}
+
+.toast.show {
+    opacity: 1;
 }

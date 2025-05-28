@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>채용공고 등록</title>
   <link rel="stylesheet" href="채용공고등록.css" />
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -15,7 +16,7 @@
       <h1 class="title">채용공고 등록</h1>
     </header>
 
-    <form class="form">
+    <form id="jobForm" class="form">
       <label for="title">채용공고 제목<span class="required">*</span></label>
       <input type="text" id="title" maxlength="50" placeholder="제목을 적어주세요.(50자 이내)" required />
 
@@ -51,71 +52,220 @@
       <label for="location">근무지역<span class="required">*</span></label>
       <div class="address-search">
         <input type="text" id="location" placeholder="도로명 주소를 적어주세요. 예) 세종대로 110" required />
-        <button type="button" class="search-btn">검색</button>
+        <button type="button" id="search-btn" class="search-btn">검색</button>
       </div>
       <input type="text" id="location-detail" placeholder="상세 주소를 적어주세요. 예) 서울특별시청 1층" />
 
       <label for="details">상세요강</label>
       <textarea id="details" rows="6" maxlength="600" placeholder="상세내용을 적어주세요. (최대 600자 이내)"></textarea>
 
-    <label>이미지 등록</label>
-        <div class="image-upload-wrapper">
-          <div class="image-upload">
-            <img src="../공통/img/material-symbols-light_upload.png" alt="upload icon" />
-            <span>이곳에 이미지를 업로드하거나<br>드래그 앤 드랍 해주세요.</span>
-            <input type="file" id="upload" accept=".jpg,.png" />
+      <div class="form-group">
+        <label>이미지 등록<span class="required">*</span></label>
+        <div class="file-upload">
+          <!-- 드래그 앤 드롭 영역 -->
+          <div class="file-upload-area mt-12" id="resumeDropArea">
+            <img
+              src="../공통/img/material-symbols-light_upload.png"
+              alt="upload icon"
+            />
+            <div class="upload-text">
+              이곳에 파일을 업로드하거나,<br />
+              아래 버튼을 눌러 파일을 등록해주세요.
+            </div>
           </div>
-            <p class="note">
-                이미지 파일은 JPG, PNG 파일만 등록 가능합니다.<br>
-                최대 1MB 이하 파일만 업로드할 수 있어요.
-            </p>
-            <button type="button" class="file-btn">파일 찾기</button>
-        </div>
 
-      <div class="btn-group">
-        <button type="button" class="btn draft" disabled>임시저장</button>
-        <button type="submit" class="btn submit">등록하기</button>
-      </div>
+          <!-- 실제 파일 input 은 숨김 -->
+          <input
+            type="file"
+            id="cardload"
+            class="hidden"
+            accept=".png,.jpeg"
+          />
+          <!-- 안내 문구 -->
+          <div class="file-info">
+            JPG,PNG 파일만 등록 가능하며, 파일은 최대 1MB까지 등록할 수 있습니다.
+          </div>
+
+          <!-- 파일명 표시와 버튼을 한 줄에 -->
+          <div class="file-footer">
+            <span class="file-name">선택된 파일 없음</span>
+            <button
+              type="button"
+              class="btn-file"
+              onclick="document.getElementById('cardload').click()"
+            >
+              파일 찾기
+            </button>
+          </div>
+        </div>
+      </div>        
     </form>
   </div>
+  <footer class="footer">
+    <div class="btn-group">
+      <button type="button" id="draft" class="btn draft">임시저장</button>
+      <button type="button" id="submit" class="btn submit">등록하기</button>
+    </div>
+    <div id="toast" class="toast"></div>
+  </footer>
+  
 
   <script>
-  const uploadInput = document.getElementById('upload');
-  const uploadArea  = document.querySelector('.upload-area');
-  const fileBtn     = document.querySelector('.file-btn');
+    document.getElementById('search-btn').addEventListener('click', function () {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        let addr = ''; // 주소 변수
+        if (data.userSelectedType === 'R') {
+          addr = data.roadAddress; // 도로명 주소
+        } else {
+          addr = data.jibunAddress; // 지번 주소
+        }
+  
+        document.getElementById('location').value = addr;
+        showToast('주소가 입력되었습니다');
+      }
+    }).open();
+}); 
 
-  fileBtn.addEventListener('click', () => uploadInput.click());
 
-  uploadInput.addEventListener('change', (e) => {
-    if (!e.target.files.length) return;
-    handleFile(e.target.files[0]);
-  });
+  function enableDragAndDrop(dropAreaId, inputId, fileListId) {
+    const dropArea = document.getElementById(dropAreaId);
+    const fileInput = document.getElementById(inputId);
+    const fileList = document.getElementById(fileListId);
 
-  uploadArea.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    uploadArea.classList.add('dragover');
-  });
-  uploadArea.addEventListener('dragleave', () => {
-    uploadArea.classList.remove('dragover');
-  });
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+      dropArea.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
 
-  uploadArea.addEventListener('drop', (e) => {
-    e.preventDefault();
-    uploadArea.classList.remove('dragover');
-    const files = e.dataTransfer.files;
-    if (files.length && /\.(jpe?g|png)$/i.test(files[0].name) && files[0].size <= 1024*1024) {
-      uploadInput.files = files;
-      handleFile(files[0]);
-    } else {
-      alert('JPG/PNG만, 최대 1MB 이하 파일만 등록 가능합니다.');
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      dropArea.addEventListener(eventName, () =>
+        dropArea.classList.add('highlight')
+      );
+    });
+
+    ['dragleave', 'drop'].forEach((eventName) => {
+      dropArea.addEventListener(eventName, () =>
+        dropArea.classList.remove('highlight')
+      );
+    });
+
+    dropArea.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    function addFileBadge(fileName) {
+      const badge = document.createElement('span');
+      badge.className = 'file-badge';
+      badge.textContent = fileName;
+
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '×';
+      closeBtn.className = 'remove-badge';
+      closeBtn.type = 'button';
+
+      closeBtn.onclick = () => {
+        badge.remove(); // 화면에서 파일 이름 제거
+        fileInput.value = ''; // input 초기화 (파일 다시 선택 가능하게)
+        showToast(`파일이 삭제되었습니다.`);
+      };
+
+      badge.appendChild(closeBtn);
+      fileList.innerHTML = '';
+      fileList.appendChild(badge);
     }
+
+    dropArea.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length) {
+        fileInput.files = files;
+        addFileBadge(files[0].name);
+        showToast(`"${files[0].name}" 파일이 등록되었습니다.`);
+      }
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length) {
+        addFileBadge(fileInput.files[0].name);
+        showToast(`"${fileInput.files[0].name}" 파일이 등록되었습니다.`);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const fileInput = document.getElementById('cardload');
+    const fileNameSpan = document.querySelector('.file-footer .file-name');
+    const dropArea = document.getElementById('resumeDropArea');
+
+    // 1) input 에서 선택했을 때 파일명 업데이트
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length) {
+        fileNameSpan.textContent = fileInput.files[0].name;
+      } else {
+        fileNameSpan.textContent = '선택된 파일 없음';
+      }
+    });
+
+    // 2) 드래그 앤 드롭 했을 때도 동일하게
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((evt) =>
+      dropArea.addEventListener(evt, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      })
+    );
+    ['dragenter', 'dragover'].forEach((evt) =>
+      dropArea.addEventListener(evt, () =>
+        dropArea.classList.add('highlight'
+        )
+      )
+    );
+    ['dragleave', 'drop'].forEach((evt) =>
+      dropArea.addEventListener(evt, () =>
+        dropArea.classList.remove('highlight'
+        )
+      )
+    );
+    dropArea.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (!files.length) return;
+      fileInput.files = files; // input 파일 목록 갱신
+      fileNameSpan.textContent = files[0].name;
+    });
   });
-  const numInput = document.getElementById('number');
-  numInput.addEventListener('input', () => {
-    if (numInput.value.length > 3) {
-      numInput.value = numInput.value.slice(0, 3);
+
+// 버튼 눌렀을 때 메세지
+function showToast(message) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
     }
-  });
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+
+// Toast 메세지 모음
+document.getElementById('draft').addEventListener('click', () => {
+    showToast("임시저장 되었습니다");
+});
+// 등록하기 → 다음 페이지로 이동하며 메시지 표시
+document.getElementById('submit').addEventListener('click', () => {
+    // 페이지 이동할 URL
+    const nextPage = '../7공고관리/채용공고관리등록.html';
+    // 메시지를 로컬스토리지에 저장
+    localStorage.setItem('registerMessage', '등록이 완료되었습니다');
+    // 페이지 이동
+    window.location.href = nextPage;
+});
 </script>
 
 
