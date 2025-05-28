@@ -1,97 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=412, initial-scale=1.0" />
     <title>일자리 신청</title>
-    <link rel="stylesheet" href="./job_application.css">
+    <link rel="stylesheet" href="./job_application.css" />
 </head>
+
 <body>
-    <div class="container">
-        <!-- 헤더 -->
-        <header class="header">
-            <button class="back-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <h1 class="title">일자리 신청</h1>
+    <div class="wrapper">
+        <header>
+            <a href="../6메인/Ywork.html" class="back-btn">
+                <img src="../공통/img/뒤로가기.png" alt="뒤로가기 버튼">
+            </a>
+            <div class="header-title">온라인 지원</div>
         </header>
 
-        <form class="application-form">
-            <!-- 지원내용 섹션 -->
-            <section class="form-section">
-                <h2 class="section-title">지원내용</h2>
-                <div class="input-group">
-                    <textarea id="company-name" class="textarea" placeholder="회사명" readonly>삼성전자</textarea>
-                    <textarea id="job-description" class="textarea" placeholder="업무내용" readonly>소프트웨어 개발 및 시스템 운영
-- 웹 애플리케이션 개발
-- 데이터베이스 관리
-- 시스템 유지보수</textarea>
-                </div>
-            </section>
-
-            <!-- 지원정보 섹션 -->
-            <section class="form-section">
-                <h2 class="section-title">지원정보</h2>
-                <div class="input-group">
-                    <input type="text" id="applicant-name" class="input-field" placeholder="이름" value="홍길동">
-                    <input type="tel" id="phone" class="input-field" placeholder="휴대전화" value="010-1234-5678">
-                    <input type="email" id="email" class="input-field" placeholder="이메일" value="hong@example.com">
-                </div>
-            </section>
-
-            <!-- 이력서 선택 섹션 -->
-            <section class="form-section">
-                <h2 class="section-title">이력서 선택</h2>
-                <div class="resume-option selected">
-                    <div class="resume-info">
-                        <div class="checkmark">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="resume-details">
-                            <h3 class="resume-title">이력서 제목</h3>
-                            <p class="resume-date">최종 수정일 2024년 05월 22일</p>
-                        </div>
-                    </div>
-                    <span class="primary-badge">대표</span>
-                </div>
-            </section>
-
-            <!-- 사장님께 한마디 섹션 -->
-            <section class="form-section">
-                <h2 class="section-title">사장님께 한마디</h2>
-                <textarea class="message-textarea" placeholder="사장님에게 어필하는 말을 입력하세요. (200자 이내)"></textarea>
-            </section>
-
-            <!-- 추가 옵션들 -->
-            <div class="additional-options">
-                <div class="option-item">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="immediate-start" class="checkbox">
-                        <label for="immediate-start" class="checkbox-label">바로 출근할 수 있어요</label>
-                    </div>
-                    <p class="option-description">지원하려는 일자리 근로일 구하는 날 짧습니다.</p>
-                </div>
-
-                <div class="option-item expandable">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="personal-info" class="checkbox">
-                        <label for="personal-info" class="checkbox-label">[필수] 개인정보 제3자 제공 동의</label>
-                    </div>
-                    <button type="button" class="expand-btn">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
+        <div class="content">
+            <!-- 공고 제목 -->
+            <div class="form-section">
+                <div class="form-label">공고명</div>
+                <div class="form-info-text">투썸플레이스 금남로KN타워점 주말 알바 모집</div>
             </div>
 
-            <!-- 지원하기 버튼 -->
-            <button type="submit" class="submit-btn">지원하기</button>
-        </form>
+            <!-- 신청자 정보 -->
+            <div class="form-section">
+                <div class="form-label">신청자 정보</div>
+                <div class="info-item"><span class="label">이름</span> <span class="value">홍길동</span></div>
+                <div class="info-item"><span class="label">생년월일</span> <span class="value">2006-04-12</span></div>
+                <div class="info-item"><span class="label">성별</span> <span class="value">남성</span></div>
+                <div class="info-item"><span class="label">연락처</span> <span class="value">010-1234-5678</span></div>
+            </div>
+
+            <!-- 이력서 제출 확인 -->
+            <div class="form-section">
+                <div class="form-label">이력서</div>
+                <label><input type="checkbox" id="resumeCheck"> 등록한 이력서를 확인했으며 제출합니다.</label>
+            </div>
+
+            <!-- 필수 동의 -->
+            <div class="form-section">
+                <div class="form-label">개인정보 수집·이용 동의</div>
+                <label><input type="checkbox" id="agreeCheck"> 개인정보 수집 및 이용에 동의합니다. (필수)</label>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button type="button" class="btn btn-cancel" id="tempSaveBtn">임시저장</button>
+            <button type="button" class="btn btn-submit" id="submitBtn">신청하기</button>
+        </div>
+        <div id="toast" class="toast"></div>
+
+        <script type="module" src="job_application.js"></script>
     </div>
 </body>
+
 </html>
