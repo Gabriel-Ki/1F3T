@@ -27,6 +27,7 @@ html, body {
   background-color: #fff;
 }
 
+
 .icon-btn {
   font-size: 20px;
   background: none;
@@ -35,10 +36,12 @@ html, body {
   margin-right: 12px;
 }
 
+
 .header-title {
   font-size: 18px;
   font-weight: 700;
 }
+
 
 .subtitle {
   margin-top: 30px;
@@ -47,16 +50,19 @@ html, body {
   line-height: 1.1;
   font-weight: 700;
 }
+
 .subtitle p {
   margin: 0;
 }
-.subtitle p1{
+
+
+.line-small {
   font-weight: 400;
   font-size: 20px;
   color: #333;
 }
 
-.subtitle p2 { 
+.line-medium {
   font-weight: 400;
   font-size: 30px;
   color: #3f3f3f;
@@ -66,6 +72,7 @@ html, body {
 .orange { color: #FF8000; font-size: 20px; font-weight: 700; }
 .teal   { color: #00ADAD;  font-size: 30px; font-weight: 700; }
 .blue   { color: #002AFF;  font-size: 30px; font-weight: 700; }
+
 
 .box {
   width: 80%;
@@ -77,6 +84,7 @@ html, body {
   position: relative;
 }
 
+
 .main_image {
   position: relative;
   display: flex;
@@ -85,11 +93,13 @@ html, body {
   width: 100%;
 }
 
+
 .main_image img {
   width: 100%;
   border-radius: 10px;
   object-fit: contain;
 }
+
 
 .main_image_text {
   position: absolute;
@@ -104,9 +114,20 @@ html, body {
   animation: textFadeUp 0.8s ease-out 0.4s forwards;
 }
 
-.main_image_text .teal { color: #00b3b3;font-size: 17px; font-weight: 600; }
-.main_image_text .blue { color: #3366ff;font-size: 17px; font-weight: 600; }
 
+.main_image_text .teal {
+  color: #00b3b3;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.main_image_text .blue {
+  color: #3366ff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* 시작 버튼 */
 .start-btn {
   position: absolute;
   bottom: 10px;
@@ -129,14 +150,17 @@ html, body {
   animation: fadeUpBtn 0.8s ease-out 0.8s forwards;
 }
 
+
 .start-btn:hover {
   background-color: #009999;
 }
+
 .start-btn:active {
   transform: translate(-50%, 0) scale(0.96);
   box-shadow: 0 2px 6px rgba(0, 179, 179, 0.2);
 }
 
+/* 하단 네비게이션 */
 .footer {
   width: 100%;
   max-width: 412px;
@@ -151,6 +175,7 @@ html, body {
   background: #fff;
   z-index: 1000;
 }
+
 
 .footer-item,
 .footer-item:visited {
@@ -174,7 +199,7 @@ html, body {
   transform: scale(1.1);
 }
 
-/* 애니메이션 키프레임 */
+/* 애니메이션 정의 */
 @keyframes textFadeUp {
   to {
     opacity: 1;
@@ -196,11 +221,13 @@ html, body {
   }
 }
 
+/* 이미지 애니메이션 적용 */
 .animated-img {
   opacity: 0;
   transform: scale(0.95);
   animation: zoomInImg 0.8s ease-out forwards;
 }
+
 
 /* 폰트 */
 @font-face {

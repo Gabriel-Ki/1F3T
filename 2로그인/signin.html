@@ -8,10 +8,8 @@
 </head>
 <body>
   <div class="login-wrapper">
-    <header class="top-bar">
-      <a href="../1처음화면/entry.html" class="back-btn">
-        <img src="../공통/img/뒤로가기.png" alt="back-btn" />
-      </a>
+    <header class="header">
+      <a href="../1처음화면/entry.html" class="back-btn"><img src="../공통/img/뒤로가기.png" alt="back-btn" /></a>
       <span class="title">통합 로그인</span>
     </header>
 
@@ -176,6 +174,13 @@
         document.getElementById('login-success-modal').classList.add('show');
       } else {
         document.getElementById('login-fail-modal').classList.add('show');
+      }
+    });
+
+    // Enter 키로 로그인 기능
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        document.querySelector('.login-btn').click();
       }
     });
   </script>

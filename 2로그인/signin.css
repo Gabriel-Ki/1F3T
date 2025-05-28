@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'Paperlogy','Pretendard', sans-serif;
 }
 
 body {
@@ -19,19 +19,23 @@ body {
   background: #fff;
 }
 
-.top-bar {
+.header {
   display: flex;
   align-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 16px 0;
   border-bottom: 1px solid #ddd;
+  margin: 0 -20px; /* ← .login-wrapper의 padding 보정 */
 }
 
 .back-btn img {
-  width: 20px;
+  width: 30px;
+  margin-bottom: 10px;
+  margin-left: 20px;
   margin-right: 10px;
 }
 
 .title {
+  margin-bottom: 10px;
   font-weight: 700;
   font-size: 18px;
 }
@@ -310,7 +314,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-  margin-top: 10px; /* 👈 이 줄 추가 */
+  margin-top: 10px; 
 }
 
 /* 인증번호 입력칸 */

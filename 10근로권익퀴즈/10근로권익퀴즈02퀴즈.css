@@ -11,7 +11,7 @@ html, body {
 }
 
 .wrapper {
-  padding-bottom: 100px; 
+  padding-bottom: 100px;
   width: 100%;
   max-width: 412px;
   min-height: 100vh;
@@ -19,6 +19,7 @@ html, body {
   position: relative;
   margin: 0 auto;
 }
+
 
 .header {
   display: flex;
@@ -42,6 +43,7 @@ html, body {
   font-weight: bold;
 }
 
+/* 퀴즈 영역*/
 #quiz-container {
   margin-top: 40px;
   padding: 30px;
@@ -58,14 +60,12 @@ html, body {
 #question-text {
   font-family: 'Paperlogy', sans-serif;
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .choice-btn {
-  font-family: 'Paperlogy', sans-serif;
-  font-weight: 400;
+  font-family: 'Paperlogy', 'Pretendard';
   display: block;
   width: 100%;
   padding: 12px;
@@ -78,18 +78,39 @@ html, body {
   transition: background 0.2s ease;
 }
 
-.choice-btn:hover {
+.choice-btn:hover,
+.choice-btn.selected {
   background-color: #00ADAD;
   color: #fff;
   font-weight: 600;
 }
 
-.choice-btn.selected {
-  background-color: #00ADAD !important;
-  color: white !important;
-  font-weight: 600;
-  border: 1px solid #00ADAD !important;
+
+.nav-buttons {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.nav-btn {
+  font-family: 'Paperlogy', 'Pretendard';
+  padding: 12px 24px;
+  background-color: #00ADAD;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 173, 173, 0.3);
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.nav-btn:hover {
+  background-color: #007373;
+  transform: translateY(-2px);
+}
+
 
 .score-wrapper {
   display: flex;
@@ -146,6 +167,7 @@ html, body {
 }
 
 .action-btn {
+  font-family: 'Paperlogy', 'Pretendard';
   width: 320px;
   height: 80px;
   background-color: #00ADAD;
@@ -159,9 +181,10 @@ html, body {
 }
 
 .action-btn:hover {
-  background-color: #00adad;
+  background-color: #009999;
 }
 
+/* 모달창 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -206,32 +229,10 @@ html, body {
 }
 
 .modal-btn.confirm {
-  background-color: #00adad;
+  background-color: #00ADAD;
   color: #fff;
 }
 
-.nav-buttons {
-  margin-top: 32px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.nav-btn {
-  padding: 12px 24px;
-  background-color: #00adad;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 173, 173, 0.3);
-  transition: background-color 0.3s ease, transform 0.1s ease;
-}
-.nav-btn:hover {
-  background-color: #007373;
-  transform: translateY(-2px);
-}
 
 
 /* 폰트 */
