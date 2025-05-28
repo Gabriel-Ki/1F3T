@@ -1,0 +1,170 @@
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Paperlogy', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .wrapper {
+      max-width: 412px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #fff;
+      padding-bottom: 100px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      margin-right: 12px;
+    }
+
+    .icon-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .header-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .faq-container {
+      padding: 20px 16px 80px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      border: 2px solid #00adad;
+      padding: 16px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      cursor: pointer;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      font-size: 16px;
+      color: #111;
+      position: relative;
+    }
+
+    .faq-answer {
+  display: none;
+  margin-top: 5px;
+  color: #444;
+  line-height: 1.8;
+  padding: 10px 0; 
+  font-size: 15px;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+    .footer {
+      width: 100%;
+      max-width: 412px;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      border-top: 1px solid #ddd;
+      background: #fff;
+      z-index: 1000;
+    }
+
+    .footer-item {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10px;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-item img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 4px;
+    }
+
+    .footer-item:hover img {
+      transform: scale(1.1);
+    }
+
+/*font-face*/
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-1Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-3Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../공통/font/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
