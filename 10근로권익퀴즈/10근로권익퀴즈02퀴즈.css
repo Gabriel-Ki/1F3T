@@ -132,19 +132,21 @@ html, body {
 
 .score-label {
   font-size: 24px;
-  color: #ffffffcc;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .score-number {
-  font-size: 48px;
+  font-size: 60px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 900;
+  letter-spacing: 3px;
 }
 
 .text1 {
   text-align: center;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 800;
   color: #007373;
   margin-top: 30px;
 }
