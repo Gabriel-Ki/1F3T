@@ -436,6 +436,37 @@ header {
     flex-wrap: wrap;
     gap: 8px;
 }
+/* --- 필터 유형별 색상 스타일 --- */
+.badge-region {
+    background-color: #00ADAD;
+}
+
+.badge-industry {
+    background-color: #b1a3ce;
+}
+
+.badge-period {
+    background-color: #1976D2;
+}
+
+/* 선택된 버튼 색상 */
+.option-buttons button.selected-region {
+    background-color: #00ADAD;
+    color: white;
+    border-color: #00ADAD;
+}
+
+.option-buttons button.selected-industry {
+    background-color: #b1a3ce;
+    color: white;
+    border-color: #b1a3ce;
+}
+
+.option-buttons button.selected-period {
+    background-color: #1976D2;
+    color: white;
+    border-color: #1976D2;
+}
 
 .remove-btn {
     background: none;
