@@ -60,38 +60,7 @@
 
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const count = document.querySelectorAll('.content .card').length;
-    document.querySelector('.filter-bar .total')
-      .textContent = `전체 ${count}건`;
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.tabs .tab').forEach(async tab => {
-    const href = tab.getAttribute('href');
-    try {
-      const res  = await fetch(href, { cache: 'no-cache' });
-      const text = await res.text();
-      const doc = new DOMParser().parseFromString(text, 'text/html');
-      const cnt = doc.querySelectorAll('.content .card').length;
-      tab.querySelector('.count').textContent = cnt;
-    } catch (e) {
-      console.error(`Failed to load ${href}:`, e);
-      tab.querySelector('.count').textContent = '0';
-    }
-  });
-
-  const path = location.pathname.split('/').pop();
-  document.querySelectorAll('.tabs .tab').forEach(tab => {
-    if (tab.getAttribute('href') === path) {
-      tab.classList.add('active');
-    }
-  });
-});
-
-
-</script>
+<script src="채용공고관리.js" defer></script>
 
 </body>
 </html>

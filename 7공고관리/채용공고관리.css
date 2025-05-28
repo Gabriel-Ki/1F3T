@@ -89,7 +89,7 @@ button,
 .delete-btn,
 .fab,
 .back-btn {
-  font-family: 'Paperlogy', sans-serif !important;
+  font-family: 'Paperlogy', sans-serif;
   cursor: pointer;
   border: none;
   background: none;
