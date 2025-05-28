@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>근로권익 퀴즈</title>
   <link rel="stylesheet" href="10근로권익퀴즈02퀴즈.css" />
+  <title>근로권익 퀴즈</title>
 </head>
 <body>
   <div class="wrapper">
     <header class="header">
-      <button class="icon-btn" onclick="history.back()"><img src="../공통/img/lucide_arrow-left.png" alt="뒤로가기"></button>
+      <button class="icon-btn" onclick="history.back()">
+        <img src="../공통/img/lucide_arrow-left.png" alt="뒤로가기" />
+      </button>
       <div class="header-title">근로권익 퀴즈</div>
     </header>
 
+    <!-- 퀴즈 영역 -->
     <div id="quiz-container">
       <div id="question-number">1/5</div>
       <div id="question-text">질문이 여기에 표시됩니다.</div>
@@ -23,6 +26,7 @@
       </div>
     </div>
 
+    <!-- 결과 영역 -->
     <div id="result-container" style="display: none;">
       <div class="score-wrapper">
         <div class="score-circle">
@@ -36,7 +40,7 @@
     </div>
   </div>
 
-  <!-- 채용공고 이동 모달 -->
+  <!-- 추천 채용공고 이동 모달 -->
   <div class="modal-overlay" id="custom-modal">
     <div class="modal-content">
       <p>Y:WORK 추천 일자리 목록으로 이동합니다!</p>
@@ -44,76 +48,56 @@
     </div>
   </div>
 
-  <!-- 근로권익 콘텐츠 이동 모달 -->
+  <!-- 교육 콘텐츠 이동 모달 -->
   <div class="modal-overlay" id="content-modal">
     <div class="modal-content">
-      <p>근로권익 교육 페이지로<br>이동하시겠습니까?</p>
+      <p>근로권익 교육 페이지로<br />이동하시겠습니까?</p>
       <button class="modal-btn cancel" onclick="closeContentModal()">취소</button>
       <button class="modal-btn confirm" onclick="goToContentPage()">이동</button>
     </div>
   </div>
 
   <script>
+    // 퀴즈 데이터
     const quizData = [
-      {
-        question: "Q1. 다음 중 근로계약서에 반드시 포함되어야 할 내용이 아닌 것은?",
-        choices: ["근로시간", "임금", "휴게시간", "성적 증명서"],
-        answer: "성적 증명서"
-      },
-      {
-        question: "Q2. 다음 중 청소년이 일할 수 없는 시간대는 언제인가요?",
-        choices: ["오후 3시", "오전 9시", "오후 9시 이후", "오전 11시"],
-        answer: "오후 9시 이후"
-      },
-      {
-        question: "Q3. 부당해고에 대해 청소년이 법적 대응을 할 때 필요한 서류는?",
-        choices: ["근로계약서 및 해고 통지서", "학교 생활기록부", "가족관계증명서", "주민등록증"],
-        answer: "근로계약서 및 해고 통지서"
-      },
-      {
-        question: "Q4. 청소년 근로자가 보호받기 위한 법적 기준이 아닌 것은?",
-        choices: ["최저임금 보장", "의무교육 이수 여부", "근로시간 제한", "야간 근로 제한"],
-        answer: "의무교육 이수 여부"
-      },
-      {
-        question: "Q5. 근로 중 실수로 인한 회사 손해 배상의 원칙은?",
-        choices: ["고의가 없으면 배상하지 않음", "무조건 배상", "임금에서 자동 공제", "배상 필요 없음"],
-        answer: "고의가 없으면 배상하지 않음"
-      }
+      { question: "Q1. 다음 중 근로계약서에 반드시 포함되어야 할 내용이 아닌 것은?", choices: ["근로시간", "임금", "휴게시간", "성적 증명서"], answer: "성적 증명서" },
+      { question: "Q2. 다음 중 청소년이 일할 수 없는 시간대는 언제인가요?", choices: ["오후 3시", "오전 9시", "오후 9시 이후", "오전 11시"], answer: "오후 9시 이후" },
+      { question: "Q3. 부당해고에 대응 시 필요한 서류는?", choices: ["근로계약서 및 해고 통지서", "학교 생활기록부", "가족관계증명서", "주민등록증"], answer: "근로계약서 및 해고 통지서" },
+      { question: "Q4. 청소년 근로자 보호 기준이 아닌 것은?", choices: ["최저임금 보장", "의무교육 이수 여부", "근로시간 제한", "야간 근로 제한"], answer: "의무교육 이수 여부" },
+      { question: "Q5. 실수로 인한 회사 손해 배상의 원칙은?", choices: ["고의가 없으면 배상하지 않음", "무조건 배상", "임금에서 자동 공제", "배상 필요 없음"], answer: "고의가 없으면 배상하지 않음" }
     ];
 
     let currentQuestion = 0;
     let score = 0;
     let userAnswers = Array(quizData.length).fill(null);
 
-    const questionEl = document.getElementById('question-text');
-    const choicesEl = document.getElementById('choices');
-    const numberEl = document.getElementById('question-number');
-    const quizContainer = document.getElementById('quiz-container');
-    const resultContainer = document.getElementById('result-container');
-    const finalScoreEl = document.getElementById('final-score');
-    const resultTitle = document.getElementById('result-title');
-    const resultDesc = document.getElementById('result-desc');
-    const actionButtons = document.getElementById('action-buttons');
-    const modal = document.getElementById('custom-modal');
+    const questionEl = document.getElementById("question-text");
+    const choicesEl = document.getElementById("choices");
+    const numberEl = document.getElementById("question-number");
+    const quizContainer = document.getElementById("quiz-container");
+    const resultContainer = document.getElementById("result-container");
+    const finalScoreEl = document.getElementById("final-score");
+    const resultTitle = document.getElementById("result-title");
+    const resultDesc = document.getElementById("result-desc");
+    const actionButtons = document.getElementById("action-buttons");
 
     function loadQuestion() {
       const current = quizData[currentQuestion];
       questionEl.textContent = current.question;
       numberEl.textContent = `${currentQuestion + 1}/${quizData.length}`;
-      choicesEl.innerHTML = '';
+      choicesEl.innerHTML = "";
 
       current.choices.forEach(choice => {
-        const btn = document.createElement('button');
+        const btn = document.createElement("button");
         btn.textContent = choice;
-        btn.className = 'choice-btn';
+        btn.className = "choice-btn";
         if (userAnswers[currentQuestion] === choice) {
-          btn.classList.add('selected');
+          btn.classList.add("selected");
         }
         btn.onclick = () => {
           userAnswers[currentQuestion] = choice;
-          Array.from(choicesEl.children).forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
+          Array.from(choicesEl.children).forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
         };
         choicesEl.appendChild(btn);
       });
@@ -136,56 +120,50 @@
     }
 
     function showResult() {
-      score = 0;
-      userAnswers.forEach((answer, i) => {
-        if (answer === quizData[i].answer) score++;
-      });
-
+      score = userAnswers.reduce((acc, answer, i) => acc + (answer === quizData[i].answer ? 1 : 0), 0);
       const percent = Math.round((score / quizData.length) * 100);
       finalScoreEl.textContent = percent;
-      quizContainer.style.display = 'none';
-      resultContainer.style.display = 'block';
-      actionButtons.innerHTML = '';
+      quizContainer.style.display = "none";
+      resultContainer.style.display = "block";
 
       if (percent >= 60) {
-        resultTitle.textContent = '축하해요!';
-        resultDesc.innerHTML = `퀴즈 통과로 근로권익을 잘 이해하게 되었어요.<br />이제 안전하고 공정한 일자리에 자신 있게 도전해 보세요!`;
+        resultTitle.textContent = "축하해요!";
+        resultDesc.innerHTML = "퀴즈 통과로 근로권익을 잘 이해하게 되었어요.<br>이제 안전하고 공정한 일자리에 도전해보세요!";
         actionButtons.innerHTML = `
           <button class="action-btn" onclick="window.location.href='10.근로권익퀴즈03수료증.html'">수료증 발급</button>
-          <button class="action-btn" onclick="alertAndRedirect()">채용공고 보러가기</button>
+          <button class="action-btn" onclick="openJobModal()">채용공고 보러가기</button>
         `;
       } else {
-        resultTitle.textContent = '아쉬워요!';
-        resultDesc.innerHTML = `조금 더 공부하면 근로권익을 잘 알 수 있어요.<br />다시 도전해서 꼭 합격해 보세요!`;
+        resultTitle.textContent = "아쉬워요!";
+        resultDesc.innerHTML = "조금 더 공부하면 근로권익을 잘 알 수 있어요.<br>다시 도전해보세요!";
         actionButtons.innerHTML = `
-          <button class="action-btn" onclick="openContentModal()">근로콘텐츠 보러가기</button>
-          <button class="action-btn" onclick="location.reload()">퀴즈 다시 풀기</button>
+          <button class="action-btn" onclick="openContentModal()">근로 콘텐츠 보기</button>
+          <button class="action-btn" onclick="location.reload()">다시 풀기</button>
         `;
       }
     }
 
-    function alertAndRedirect() {
-      modal.style.display = 'flex';
+    function openJobModal() {
+      document.getElementById("custom-modal").style.display = "flex";
     }
-
     function goToJobPage() {
-      window.location.href = '../12채용정보/job_listing_page.html';
+      window.location.href = "../12채용정보/job_listing.html";
     }
 
     function openContentModal() {
       document.getElementById("content-modal").style.display = "flex";
     }
-
     function closeContentModal() {
       document.getElementById("content-modal").style.display = "none";
     }
-
     function goToContentPage() {
       window.open("https://www.youthlabor.co.kr/education/class", "_blank");
       closeContentModal();
     }
 
+    // 초기 문제 로딩
     loadQuestion();
   </script>
 </body>
 </html>
+

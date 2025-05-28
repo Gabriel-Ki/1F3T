@@ -42,7 +42,7 @@
                     <img src="./img/material-symbols_quiz-outline-rounded.png" alt="근로권익" />
                     <p>근로권익퀴즈 <br>인증서 발급</p>
                 </a>
-                <a href="../12채용정보/job_listing_page.html" class="menu-item">
+                <a href="../12채용정보/job_listing.html" class="menu-item">
                     <img src="./img/bx_briefcase.png" alt="채용공고" />
                     <p>채용공고</p>
                 </a>
@@ -98,7 +98,7 @@
                     <span>산재보험가입</span>
                     <span>청소년아르바이트교육 수료</span>
                 </div>
-                <a href="job-detail.html" class="job-card">
+                <a href="../13채용정보상세/job_list_detail.html" class="job-card">
                     <div class="job-info">
                         <p><strong>업무:</strong> 홀서빙</p>
                         <p><strong>매장명:</strong> 청춘분식</p>
@@ -164,44 +164,9 @@
 
     </div>
 
-    <script>
-        const texts = [
-            "허위로 구인공고를 내면 처벌을 받을 수 있을까요?",
-            "청소년도 주휴수당을 받을 수 있습니다.",
-            "일한 시간만큼 정확하게 급여를 받아야 합니다.",
-            "근로계약서는 반드시 작성해야 합니다!"
-        ];
-
-        let index = 0;
-        const textEl = document.getElementById("slider-text");
-
-        function slideText() {
-            textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-            textEl.style.transform = "translateY(-100%)";
-            textEl.style.opacity = "0";
-
-            setTimeout(() => {
-                index = (index + 1) % texts.length;
-                textEl.textContent = texts[index];
-
-                textEl.style.transition = "none";
-                textEl.style.transform = "translateY(100%)";
-
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        textEl.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-                        textEl.style.transform = "translateY(0)";
-                        textEl.style.opacity = "1";
-                    });
-                });
-            }, 500); 
-        }
-
-        setInterval(slideText, 5000);
-    </script>
-
-
 
 </body>
+
+<script src="Ywork.js"></script>
 
 </html>

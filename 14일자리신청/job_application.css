@@ -134,10 +134,48 @@ label {
     font-size: 14px;
     display: flex;
     align-items: center;
-    margin-top: 8px;
-    color: #333;
+    justify-content: center;
 }
 
-.form-section {
-    margin-bottom: 20px;
+.expand-btn:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
 }
+
+/* 지원하기 버튼 */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #00a085;
+}
+
+.submit-btn:active {
+    background-color: #008f75;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 400px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    .application-form {
+        padding: 0 16px 16px;
+    }
+    
+    .header {
+        padding: 12px 16px;
+    }
+}
+
