@@ -54,13 +54,25 @@
     {
       question: "청소년이 취업할 수 있는 연령은 언제일까요?",
       answer: "근로기준법 시행령 제35조에 따르면 만 13세 이상 15세 미만의 연소자는 노동허가를 발급하는 취직인허증을 발급받으면 고용이 가능하도록 정하고 있습니다. 다만, 예술공연과 체육 분야에 종사하는 청소년은 예외적으로 만 13세 미만이라도 취직인허증을 받을 수 있어요."
+    },
+    {
+      question: "월급을 준다고 하면서 계속 주지 않으면 어떻게 해야 하나요?",
+      answer: "지급하지 않을 때에는 사업장 주소지 관할 노동청에 진정을 통해 해결이 가능합니다. 임금 체불의 경우 노동부 지정 및 고소를 통하는 방법과 법원 소송을 통하는 방법 2가지가 있으며, 법원 소송 시 기간 및 비용이 많이 소요되기 때문에 노동부를 통하는 것이 근로자에게 유리한 편입니다."
     }
   ];
 
-   const container = document.getElementById("faq-list");
-  faqData.forEach(faq => {
+ // URL 파라미터에서 'question' 값 읽기
+const params = new URLSearchParams(window.location.search);
+const selectedIndex = parseInt(params.get("question"));
+
+const container = document.getElementById("faq-list");
+
+faqData.forEach((faq, index) => {
   const item = document.createElement("div");
   item.className = "faq-item";
+  if (index === selectedIndex) {
+    item.classList.add("active");
+  }
 
   const q = document.createElement("div");
   q.className = "faq-question";
@@ -68,11 +80,12 @@
 
   const a = document.createElement("div");
   a.className = "faq-answer";
-  a.textContent = "A." + faq.answer;
+  a.textContent = "A. " + faq.answer;
 
   item.appendChild(q);
   item.appendChild(a);
 
+  // 클릭 시 토글
   item.addEventListener("click", () => {
     item.classList.toggle("active");
   });
@@ -80,6 +93,10 @@
   container.appendChild(item);
 });
 
+// 뒤로가기 버튼 기능
+document.getElementById("backBtn").addEventListener("click", () => {
+  window.location.href = "../6메인/Ywork.html";
+});
 </script>
 </body>
 </html>

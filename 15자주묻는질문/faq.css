@@ -28,7 +28,9 @@
     .icon-btn {
       background: none;
       border: none;
-      margin-right: 12px;
+      cursor: pointer;
+      margin-right: 10px;
+      
     }
 
     .icon-btn img {
