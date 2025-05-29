@@ -176,7 +176,7 @@ html, body {
   z-index: 1000;
 }
 
-
+/* 네비 아이템 */
 .footer-item,
 .footer-item:visited {
   text-decoration: none;

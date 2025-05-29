@@ -51,7 +51,7 @@ const gugun = document.getElementById("sigugunSelector");
 const dong = document.getElementById("dongSelector");
 const selectedDongs = document.getElementById("selectedDongs");
 
-// 시/도 선택택
+// 시/도 선택
 sido.addEventListener("change", () => {
     gugun.innerHTML = '<option value="">구/군 선택</option>';
     dong.innerHTML = '<option value="">동 선택</option>';

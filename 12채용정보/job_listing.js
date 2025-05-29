@@ -259,14 +259,14 @@ function setupFilterOptionButtons() {
     // 공통 처리
     function toggleOption(button, filterKey) {
         const value = button.dataset.value;
-        const container = document.getElementById('filterBadges'); // ✅ 항상 여기에 추가
-        const isSelected = button.classList.toggle("selected");
+        const container = document.getElementById('filterBadges');
+        const isSelected = button.classList.toggle(`selected-${filterKey}`);
 
         if (isSelected) {
             if ([...container.children].some(el => el.dataset.value === value)) return;
 
             const badge = document.createElement("div");
-            badge.className = "job-badge";
+            badge.className = `job-badge badge-${filterKey}`;
             badge.dataset.value = value;
             badge.textContent = value;
 
@@ -276,7 +276,7 @@ function setupFilterOptionButtons() {
             removeBtn.addEventListener("click", () => {
                 badge.remove();
                 selectedFilters[filterKey] = selectedFilters[filterKey].filter(v => v !== value);
-                button.classList.remove("selected");
+                button.classList.remove(`selected-${filterKey}`);
             });
 
             badge.appendChild(removeBtn);
