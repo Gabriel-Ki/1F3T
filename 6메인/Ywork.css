@@ -113,11 +113,9 @@ body {
 
 .alert-box {
     background-color: #f8f8f8;
-    padding: 12px;
-    margin: 12px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .grid {
@@ -397,4 +395,10 @@ html,
 .job-info p {
     margin: 4px 0;
     font-size: 14px;
+}
+
+/* 기존 스타일 맨 아래에 추가 */
+a, a:visited {
+  color: #000;
+  text-decoration: none;
 }
